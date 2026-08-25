@@ -7,14 +7,14 @@ import Drills from '../pages/Drills'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <DisplayProvider>
         <DatasetProvider>
           <Routes>
             <Route element={<Layout />}>
-              <Route index element={<Navigate to="/drills" replace />} />
-              <Route path="/flashcards" element={<Flashcards />} />
-              <Route path="/drills" element={<Drills />} />
+              <Route index element={<Navigate to="drills" replace />} />
+              <Route path="flashcards" element={<Flashcards />} />
+              <Route path="drills" element={<Drills />} />
             </Route>
           </Routes>
         </DatasetProvider>
