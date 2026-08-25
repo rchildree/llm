@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM: Latin learning machine</title>
+    <script>
+      // GitHub Pages cannot rewrite SPA routes. Redirect unknown routes to the
+      // app root and encode the original route for index.html to restore.
+      ;(function (location) {
+        const projectPathSegments = 1
+        const projectRoot = location.pathname.split('/').slice(0, projectPathSegments + 1).join('/')
+        const route = location.pathname
+          .split('/')
+          .slice(projectPathSegments + 1)
+          .join('/')
+          .replace(/&/g, '~and~')
+        const query = location.search.slice(1).replace(/&/g, '~and~')
+
+        location.replace(`${projectRoot}/?/${route}${query ? `&${query}` : ''}${location.hash}`)
+      })(window.location)
+    </script>
+  </head>
+  <body></body>
+</html>
