@@ -1,0 +1,18 @@
+{
+ "flags": ["defective"],
+ "forms": [
+  { "s": "vīs", "a": [{ "k": "nom", "c": "nom", "n": "sg", "g": "f" }] },
+  { "s": "vim", "a": [{ "k": "nom", "c": "acc", "n": "sg", "g": "f" }] },
+  { "s": "vī", "a": [{ "k": "nom", "c": "abl", "n": "sg", "g": "f" }] },
+  { "s": "vīrēs", "a": [
+   { "k": "nom", "c": "nom", "n": "pl", "g": "f" },
+   { "k": "nom", "c": "acc", "n": "pl", "g": "f" },
+   { "k": "nom", "c": "voc", "n": "pl", "g": "f" }
+  ] },
+  { "s": "vīrium", "a": [{ "k": "nom", "c": "gen", "n": "pl", "g": "f" }] },
+  { "s": "vīribus", "a": [
+   { "k": "nom", "c": "dat", "n": "pl", "g": "f" },
+   { "k": "nom", "c": "abl", "n": "pl", "g": "f" }
+  ] }
+ ]
+}

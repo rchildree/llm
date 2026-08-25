@@ -1,0 +1,10 @@
+{
+ "datasets": [
+  {
+   "id": "knudsvig-731",
+   "name": "Knudsvig, Latin for Reading",
+   "path": "datasets/knudsvig-731"
+  }
+ ],
+ "default": "knudsvig-731"
+}

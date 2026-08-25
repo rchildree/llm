@@ -1,0 +1,254 @@
+{
+ "forms": [
+  {
+   "s": "quīcumque",
+   "a": [
+    {
+     "k": "nom",
+     "c": "nom",
+     "n": "sg",
+     "g": "m"
+    },
+    {
+     "k": "nom",
+     "c": "nom",
+     "n": "pl",
+     "g": "m"
+    }
+   ]
+  },
+  {
+   "s": "quaecumque",
+   "a": [
+    {
+     "k": "nom",
+     "c": "nom",
+     "n": "sg",
+     "g": "f"
+    },
+    {
+     "k": "nom",
+     "c": "nom",
+     "n": "pl",
+     "g": "f"
+    },
+    {
+     "k": "nom",
+     "c": "nom",
+     "n": "pl",
+     "g": "n"
+    },
+    {
+     "k": "nom",
+     "c": "acc",
+     "n": "pl",
+     "g": "n"
+    }
+   ]
+  },
+  {
+   "s": "quodcumque",
+   "a": [
+    {
+     "k": "nom",
+     "c": "nom",
+     "n": "sg",
+     "g": "n"
+    },
+    {
+     "k": "nom",
+     "c": "acc",
+     "n": "sg",
+     "g": "n"
+    }
+   ]
+  },
+  {
+   "s": "cuiuscumque",
+   "a": [
+    {
+     "k": "nom",
+     "c": "gen",
+     "n": "sg",
+     "g": "m"
+    },
+    {
+     "k": "nom",
+     "c": "gen",
+     "n": "sg",
+     "g": "f"
+    },
+    {
+     "k": "nom",
+     "c": "gen",
+     "n": "sg",
+     "g": "n"
+    }
+   ]
+  },
+  {
+   "s": "cuicumque",
+   "a": [
+    {
+     "k": "nom",
+     "c": "dat",
+     "n": "sg",
+     "g": "m"
+    },
+    {
+     "k": "nom",
+     "c": "dat",
+     "n": "sg",
+     "g": "f"
+    },
+    {
+     "k": "nom",
+     "c": "dat",
+     "n": "sg",
+     "g": "n"
+    }
+   ]
+  },
+  {
+   "s": "quemcumque",
+   "a": [
+    {
+     "k": "nom",
+     "c": "acc",
+     "n": "sg",
+     "g": "m"
+    }
+   ]
+  },
+  {
+   "s": "quamcumque",
+   "a": [
+    {
+     "k": "nom",
+     "c": "acc",
+     "n": "sg",
+     "g": "f"
+    }
+   ]
+  },
+  {
+   "s": "quōcumque",
+   "a": [
+    {
+     "k": "nom",
+     "c": "abl",
+     "n": "sg",
+     "g": "m"
+    },
+    {
+     "k": "nom",
+     "c": "abl",
+     "n": "sg",
+     "g": "n"
+    }
+   ]
+  },
+  {
+   "s": "quācumque",
+   "a": [
+    {
+     "k": "nom",
+     "c": "abl",
+     "n": "sg",
+     "g": "f"
+    }
+   ]
+  },
+  {
+   "s": "quōrumcumque",
+   "a": [
+    {
+     "k": "nom",
+     "c": "gen",
+     "n": "pl",
+     "g": "m"
+    },
+    {
+     "k": "nom",
+     "c": "gen",
+     "n": "pl",
+     "g": "n"
+    }
+   ]
+  },
+  {
+   "s": "quārumcumque",
+   "a": [
+    {
+     "k": "nom",
+     "c": "gen",
+     "n": "pl",
+     "g": "f"
+    }
+   ]
+  },
+  {
+   "s": "quibuscumque",
+   "a": [
+    {
+     "k": "nom",
+     "c": "dat",
+     "n": "pl",
+     "g": "m"
+    },
+    {
+     "k": "nom",
+     "c": "dat",
+     "n": "pl",
+     "g": "f"
+    },
+    {
+     "k": "nom",
+     "c": "dat",
+     "n": "pl",
+     "g": "n"
+    },
+    {
+     "k": "nom",
+     "c": "abl",
+     "n": "pl",
+     "g": "m"
+    },
+    {
+     "k": "nom",
+     "c": "abl",
+     "n": "pl",
+     "g": "f"
+    },
+    {
+     "k": "nom",
+     "c": "abl",
+     "n": "pl",
+     "g": "n"
+    }
+   ]
+  },
+  {
+   "s": "quōscumque",
+   "a": [
+    {
+     "k": "nom",
+     "c": "acc",
+     "n": "pl",
+     "g": "m"
+    }
+   ]
+  },
+  {
+   "s": "quāscumque",
+   "a": [
+    {
+     "k": "nom",
+     "c": "acc",
+     "n": "pl",
+     "g": "f"
+    }
+   ]
+  }
+ ]
+}

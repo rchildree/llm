@@ -1,0 +1,23 @@
+:root {
+  /* palette (from colored-commentator) */
+  --accent:      #0084ff;
+  --accent-2:    #009dff;
+  --accent-mid:  #4bb7fa;
+  --grey:        #dcdcdf;
+  --grey-light:  #f6f6f7;
+  --grey-dark:   #6f6f74;
+  --text:        #3c3c43;
+  --text-light:  #6f6f74;
+  --white:       #ffffff;
+
+  /* semantic */
+  --correct:     #2e9e5b;
+  --wrong:       #d64545;
+
+  --border:      1px solid var(--grey);
+  --radius:      3px;
+  --radius-lg:   8px;
+
+  --font-sys:    system-ui, -apple-system, sans-serif;
+  --font-serif:  'Source Serif 4', Georgia, serif;
+}

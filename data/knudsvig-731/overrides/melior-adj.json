@@ -1,0 +1,306 @@
+{
+ "forms": [
+  {
+   "s": "melior",
+   "a": [
+    {
+     "k": "nom",
+     "c": "nom",
+     "n": "sg",
+     "g": "m",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "voc",
+     "n": "sg",
+     "g": "m",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "nom",
+     "n": "sg",
+     "g": "f",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "voc",
+     "n": "sg",
+     "g": "f",
+     "d": "comp"
+    }
+   ]
+  },
+  {
+   "s": "meliōris",
+   "a": [
+    {
+     "k": "nom",
+     "c": "gen",
+     "n": "sg",
+     "g": "m",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "gen",
+     "n": "sg",
+     "g": "f",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "gen",
+     "n": "sg",
+     "g": "n",
+     "d": "comp"
+    }
+   ]
+  },
+  {
+   "s": "meliōrī",
+   "a": [
+    {
+     "k": "nom",
+     "c": "dat",
+     "n": "sg",
+     "g": "m",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "dat",
+     "n": "sg",
+     "g": "f",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "dat",
+     "n": "sg",
+     "g": "n",
+     "d": "comp"
+    }
+   ]
+  },
+  {
+   "s": "meliōrem",
+   "a": [
+    {
+     "k": "nom",
+     "c": "acc",
+     "n": "sg",
+     "g": "m",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "acc",
+     "n": "sg",
+     "g": "f",
+     "d": "comp"
+    }
+   ]
+  },
+  {
+   "s": "meliōre",
+   "a": [
+    {
+     "k": "nom",
+     "c": "abl",
+     "n": "sg",
+     "g": "m",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "abl",
+     "n": "sg",
+     "g": "f",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "abl",
+     "n": "sg",
+     "g": "n",
+     "d": "comp"
+    }
+   ]
+  },
+  {
+   "s": "meliōrēs",
+   "a": [
+    {
+     "k": "nom",
+     "c": "nom",
+     "n": "pl",
+     "g": "m",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "acc",
+     "n": "pl",
+     "g": "m",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "voc",
+     "n": "pl",
+     "g": "m",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "nom",
+     "n": "pl",
+     "g": "f",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "acc",
+     "n": "pl",
+     "g": "f",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "voc",
+     "n": "pl",
+     "g": "f",
+     "d": "comp"
+    }
+   ]
+  },
+  {
+   "s": "meliōrum",
+   "a": [
+    {
+     "k": "nom",
+     "c": "gen",
+     "n": "pl",
+     "g": "m",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "gen",
+     "n": "pl",
+     "g": "f",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "gen",
+     "n": "pl",
+     "g": "n",
+     "d": "comp"
+    }
+   ]
+  },
+  {
+   "s": "meliōribus",
+   "a": [
+    {
+     "k": "nom",
+     "c": "dat",
+     "n": "pl",
+     "g": "m",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "abl",
+     "n": "pl",
+     "g": "m",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "dat",
+     "n": "pl",
+     "g": "f",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "abl",
+     "n": "pl",
+     "g": "f",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "dat",
+     "n": "pl",
+     "g": "n",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "abl",
+     "n": "pl",
+     "g": "n",
+     "d": "comp"
+    }
+   ]
+  },
+  {
+   "s": "melius",
+   "a": [
+    {
+     "k": "nom",
+     "c": "nom",
+     "n": "sg",
+     "g": "n",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "acc",
+     "n": "sg",
+     "g": "n",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "voc",
+     "n": "sg",
+     "g": "n",
+     "d": "comp"
+    }
+   ]
+  },
+  {
+   "s": "meliōra",
+   "a": [
+    {
+     "k": "nom",
+     "c": "nom",
+     "n": "pl",
+     "g": "n",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "acc",
+     "n": "pl",
+     "g": "n",
+     "d": "comp"
+    },
+    {
+     "k": "nom",
+     "c": "voc",
+     "n": "pl",
+     "g": "n",
+     "d": "comp"
+    }
+   ]
+  }
+ ]
+}
