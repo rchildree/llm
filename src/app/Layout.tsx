@@ -10,7 +10,7 @@ export default function Layout() {
   return (
     <div className="shell">
       <nav className="topnav">
-        <span className="brand">ITERUM</span>
+        <span className="brand">LLM: Latin learning Machine</span>
         <NavLink to="/flashcards" className={link}>Flashcards</NavLink>
         <NavLink to="/drills" className={link}>Drills</NavLink>
         <span className="spacer" />

@@ -1,4 +1,4 @@
-# ITERUM — Latin Learning Machine
+# LLM — Latin Learning Machine
 
 One site for Latin students: **vocab flashcards** and **form-identification
 drills** ("which of these is accusative plural?"), built on a pre-generated
