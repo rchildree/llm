@@ -38,6 +38,23 @@ describe('nouns', () => {
     expect(has(f.get('servī'), { c: 'nom', n: 'pl' })).toBe(true)
   })
 
+  test('-ius noun contracts its vocative: fīlius → fīlī', () => {
+    const f = formsOf('fīlius fīliī m.', 'son')
+    expect(has(f.get('fīlī'), { c: 'voc', n: 'sg' })).toBe(true)
+    expect(f.get('fīlie')).toBeUndefined()
+  })
+
+  test('deus is 2nd declension and borrows its nominative as vocative', () => {
+    const f = formsOf('deus deī m.', 'god')
+    expect(has(f.get('deus'), { c: 'nom', n: 'sg' })).toBe(true)
+    expect(has(f.get('deus'), { c: 'voc', n: 'sg' })).toBe(true)
+    expect(has(f.get('deōrum'), { c: 'gen', n: 'pl' })).toBe(true)
+    expect(f.get('dee')).toBeUndefined()
+    // the 5th-declension reading that "deī" used to trigger
+    expect(f.get('dēī')).toBeUndefined()
+    expect(f.get('dēbus')).toBeUndefined()
+  })
+
   test('2nd declension -er noun keeps puer in nom/voc', () => {
     const f = formsOf('puer puerī m.', 'boy')
     expect(has(f.get('puer'), { c: 'nom', n: 'sg' })).toBe(true)

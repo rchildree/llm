@@ -1,0 +1,865 @@
+{
+ "flags": [
+  "deponent"
+ ],
+ "forms": [
+  {
+   "s": "morior",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "moreris",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "moritur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "morimur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "moriminī",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    },
+    {
+     "k": "imp",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "moriuntur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "moriēbar",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "moriēbāris",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "moriēbātur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "moriēbāmur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "moriēbāminī",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "moriēbantur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "moriar",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    },
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "moriēris",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "moriētur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "moriēmur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "moriēminī",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "morientur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "moriāris",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "moriātur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "moriāmur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "moriāminī",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "moriantur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "morerer",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "morerēris",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "morerētur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "morerēmur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "morerēminī",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "morerentur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuus sum",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuus es",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuus est",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuī sumus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuī estis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuī sunt",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuus eram",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuus erās",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuus erat",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuī erāmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuī erātis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuī erant",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuus erō",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuus eris",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuus erit",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuī erimus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuī eritis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuī erunt",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuus sim",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuus sīs",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuus sit",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuī sīmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuī sītis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuī sint",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuus essem",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuus essēs",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuus esset",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "mortuī essēmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuī essētis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "mortuī essent",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "morere",
+   "a": [
+    {
+     "k": "imp",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "morī",
+   "a": [
+    {
+     "k": "inf",
+     "t": "pres",
+     "v": "act"
+    }
+   ]
+  },
+  {
+   "s": "mortuus esse",
+   "a": [
+    {
+     "k": "inf",
+     "t": "pf",
+     "v": "act"
+    }
+   ]
+  },
+  {
+   "s": "moritūrus esse",
+   "a": [
+    {
+     "k": "inf",
+     "t": "fut",
+     "v": "act"
+    }
+   ]
+  },
+  {
+   "s": "moriēns",
+   "a": [
+    {
+     "k": "ptc",
+     "t": "pres",
+     "v": "act"
+    }
+   ]
+  },
+  {
+   "s": "mortuus",
+   "a": [
+    {
+     "k": "ptc",
+     "t": "pf",
+     "v": "pass"
+    }
+   ]
+  },
+  {
+   "s": "moritūrus",
+   "a": [
+    {
+     "k": "ptc",
+     "t": "fut",
+     "v": "act"
+    }
+   ]
+  },
+  {
+   "s": "moriendus",
+   "a": [
+    {
+     "k": "ptc",
+     "t": "fut",
+     "v": "pass"
+    }
+   ]
+  }
+ ]
+}

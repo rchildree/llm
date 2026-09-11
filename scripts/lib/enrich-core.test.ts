@@ -105,6 +105,13 @@ describe('parseRow', () => {
     expect(e.pp).toEqual(['altus', 'alta', 'altum', null])
   })
 
+  test('adjective in -is/-āre is not taken for a verb', () => {
+    // mīlitāre looks like a 1st-conj. infinitive, but mīlitāris is no principal part
+    const e = row('mīlitāris mīlitāre', 'military')
+    expect(e.pos).toBe('adj')
+    expect(e.pp).toEqual(['mīlitāris', 'mīlitāris', 'mīlitāre', null])
+  })
+
   test('3rd declension 2-termination adjective', () => {
     const e = row('fortis forte', 'brave')
     expect(e.pos).toBe('adj')

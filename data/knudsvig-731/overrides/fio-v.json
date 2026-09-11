@@ -1,0 +1,840 @@
+{
+ "flags": [
+  "irreg"
+ ],
+ "forms": [
+  {
+   "s": "fīō",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fīs",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fit",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fīmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fītis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fīunt",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fīēbam",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fīēbās",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fīēbat",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fīēbāmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fīēbātis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fīēbant",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fīam",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    },
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fīēs",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fīet",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fīēmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fīētis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fīent",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fīās",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fīat",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fīāmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fīātis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fīant",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fierem",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fierēs",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fieret",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fierēmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fierētis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fierent",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factus sum",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factus es",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factus est",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factī sumus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factī estis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factī sunt",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factus eram",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factus erās",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factus erat",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factī erāmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factī erātis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factī erant",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factus erō",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factus eris",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factus erit",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factī erimus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factī eritis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factī erunt",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factus sim",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factus sīs",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factus sit",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factī sīmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factī sītis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factī sint",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factus essem",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factus essēs",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factus esset",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "factī essēmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factī essētis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "factī essent",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fī",
+   "a": [
+    {
+     "k": "imp",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "fīte",
+   "a": [
+    {
+     "k": "imp",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "fierī",
+   "a": [
+    {
+     "k": "inf",
+     "t": "pres",
+     "v": "act"
+    }
+   ]
+  },
+  {
+   "s": "factus esse",
+   "a": [
+    {
+     "k": "inf",
+     "t": "pf",
+     "v": "pass"
+    }
+   ]
+  },
+  {
+   "s": "factum īrī",
+   "a": [
+    {
+     "k": "inf",
+     "t": "fut",
+     "v": "pass"
+    }
+   ]
+  },
+  {
+   "s": "factus",
+   "a": [
+    {
+     "k": "ptc",
+     "t": "pf",
+     "v": "pass"
+    }
+   ]
+  }
+ ]
+}

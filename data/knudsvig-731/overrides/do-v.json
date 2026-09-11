@@ -1,0 +1,1665 @@
+{
+ "flags": [
+  "short-stem-vowel"
+ ],
+ "forms": [
+  {
+   "s": "dō",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dās",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dat",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "damus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dant",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dabam",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dabās",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dabat",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dabāmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dabātis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dabant",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dabō",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dabis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dabit",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dabimus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dabitis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dabunt",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dedī",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dedistī",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dedit",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dedimus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dedistis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dedērunt",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dederam",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dederās",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dederat",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dederāmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dederātis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dederant",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dederō",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dederis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dederit",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    },
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dederimus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dederitis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dederint",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    },
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dem",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dēs",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "det",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dēmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dētis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dent",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "darem",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "darēs",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "daret",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "darēmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "darētis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "darent",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dederim",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dederīs",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dederīmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dederītis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dedissem",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "act",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dedissēs",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "act",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dedisset",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "act",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dedissēmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "act",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dedissētis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "act",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dedissent",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "act",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dor",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "daris",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "damur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "daminī",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dantur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dabar",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dabāris",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dabātur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dabāmur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dabāminī",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dabantur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dabor",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "daberis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dabitur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dabimur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dabiminī",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dabuntur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "fut",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "der",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dēris",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dētur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "dēmur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dēminī",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dentur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pres",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "darer",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "darēris",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "darētur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "darēmur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "darēminī",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "darentur",
+   "a": [
+    {
+     "k": "fin",
+     "t": "impf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datus sum",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datus es",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datus est",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datī sumus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datī estis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datī sunt",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datus eram",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datus erās",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datus erat",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datī erāmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datī erātis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datī erant",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datus erō",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datus eris",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datus erit",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datī erimus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datī eritis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datī erunt",
+   "a": [
+    {
+     "k": "fin",
+     "t": "futpf",
+     "m": "ind",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datus sim",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datus sīs",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datus sit",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datī sīmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datī sītis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datī sint",
+   "a": [
+    {
+     "k": "fin",
+     "t": "pf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datus essem",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datus essēs",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datus esset",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "datī essēmus",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "1",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datī essētis",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "2",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "datī essent",
+   "a": [
+    {
+     "k": "fin",
+     "t": "plupf",
+     "m": "subj",
+     "v": "pass",
+     "p": "3",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dā",
+   "a": [
+    {
+     "k": "imp",
+     "n": "sg"
+    }
+   ]
+  },
+  {
+   "s": "date",
+   "a": [
+    {
+     "k": "imp",
+     "n": "pl"
+    }
+   ]
+  },
+  {
+   "s": "dare",
+   "a": [
+    {
+     "k": "inf",
+     "t": "pres",
+     "v": "act"
+    }
+   ]
+  },
+  {
+   "s": "darī",
+   "a": [
+    {
+     "k": "inf",
+     "t": "pres",
+     "v": "pass"
+    }
+   ]
+  },
+  {
+   "s": "dedisse",
+   "a": [
+    {
+     "k": "inf",
+     "t": "pf",
+     "v": "act"
+    }
+   ]
+  },
+  {
+   "s": "datus esse",
+   "a": [
+    {
+     "k": "inf",
+     "t": "pf",
+     "v": "pass"
+    }
+   ]
+  },
+  {
+   "s": "datūrus esse",
+   "a": [
+    {
+     "k": "inf",
+     "t": "fut",
+     "v": "act"
+    }
+   ]
+  },
+  {
+   "s": "dāns",
+   "a": [
+    {
+     "k": "ptc",
+     "t": "pres",
+     "v": "act"
+    }
+   ]
+  },
+  {
+   "s": "datus",
+   "a": [
+    {
+     "k": "ptc",
+     "t": "pf",
+     "v": "pass"
+    }
+   ]
+  },
+  {
+   "s": "datūrus",
+   "a": [
+    {
+     "k": "ptc",
+     "t": "fut",
+     "v": "act"
+    }
+   ]
+  },
+  {
+   "s": "dandus",
+   "a": [
+    {
+     "k": "ptc",
+     "t": "fut",
+     "v": "pass"
+    }
+   ]
+  }
+ ]
+}

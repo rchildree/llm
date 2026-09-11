@@ -97,7 +97,7 @@ export function classifyEntry(entry: VocabEntry): string | undefined {
         const hit = sufs.find(([suf]) => demacron(pp2).endsWith(suf))
         return hit?.[1] ?? 'irreg'
       }
-      return deriveNounDeclension(pp2)
+      return deriveNounDeclension(pp2, pp1 ?? '')
     }
     case 'adj': {
       if (entry.flags.includes('pronominal')) return 'irreg'
@@ -166,7 +166,7 @@ function nounForms(entry: VocabEntry): FormRecord[] {
     stem = stripSuffix(gen, match[0])!
     if (declension === '3' && stripSuffix(gen, ['ium'])) stem = stripSuffix(gen, ['ium'])!
   } else {
-    declension = deriveNounDeclension(gen)
+    declension = deriveNounDeclension(gen, nom)
     stem = deriveNounStem(declension, gen)
   }
 

@@ -64,6 +64,17 @@ function isIrregularInfinitive(inf: string): boolean {
   )
 }
 
+/**
+ * A verb citation opens with a finite form: 1sg present in -ō/-or, an
+ * irregular in -m (sum, possum), an impersonal in -t (licet, decet), or a
+ * perfect in -ī (meminī, ōdī). Without this guard an adjective whose second
+ * term merely looks like an infinitive — mīlitāris mīlitāre — is taken for a
+ * first-conjugation verb and conjugated.
+ */
+function looksLikePrincipalPart(word: string): boolean {
+  return /(?:o|or|m|t|i)$/.test(demacron(word))
+}
+
 /** Compound of eō: adeō/adīre, exeō/exīre... (regular 4th-conj is -iō/-īre, not -eō/-īre). */
 function isEoCompound(pp1: string, inf: string): boolean {
   const p1 = demacron(pp1)
@@ -169,7 +180,7 @@ export function parseRow(dict: string, def: string, chap: string): ParsedEntry {
       (/i$/.test(infPlain) && /or$/.test(demacron(words[0])))
     const isIrregInf = isIrregularInfinitive(inf) || isEoCompound(words[0], inf)
 
-    if (isRegInf || isDepInf || isIrregInf) {
+    if ((isRegInf || isDepInf || isIrregInf) && looksLikePrincipalPart(words[0])) {
       let pp3: string | null = words[2] ?? null
       let pp4: string | null = words[3] ?? null
       if (isIrregInf) flags.push('irreg')

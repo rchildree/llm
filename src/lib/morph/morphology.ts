@@ -45,14 +45,30 @@ export function deriveNounStem(declension: NounEntry["declension"], genitive: st
   return removeEnding(genitive.trim(), endings[declension]);
 }
 
-export function deriveNounDeclension(genitive: string): NounEntry["declension"] {
+export function deriveNounDeclension(genitive: string, nominative = ""): NounEntry["declension"] {
   const value = genitive.trim();
+  const nom = nominative.trim();
   if (value.endsWith("ae")) return "1";
-  if (value.endsWith("ēī") || value.endsWith("eī") || value.endsWith("ei")) return "5";
+  // A genitive in -eī is 5th only when the nominative is in -ēs (rēs reī,
+  // diēs diēī). deus deī is 2nd declension and must not be caught here.
+  if (value.endsWith("ēī") || value.endsWith("eī") || value.endsWith("ei")) {
+    if (!nom || /ēs$|es$/.test(nom)) return "5";
+  }
   if (value.endsWith("ī") || value.endsWith("i")) return "2";
   if (value.endsWith("is")) return "3";
   if (value.endsWith("ūs") || value.endsWith("us")) return "4";
   return "3";
+}
+
+/**
+ * Some verbs are cited with a future participle in the fourth slot rather than
+ * a supine (fugiō fugere fūgī fugitūrum, eō īre iī itūrum). Stripping only
+ * -um/-us there leaves "fugitūr", which then yields "fugitūrūrus".
+ */
+function supineStemFrom(fourthPart: string): string {
+  const value = fourthPart.trim();
+  if (/ūr(um|us)$/.test(value)) return value.replace(/ūr(um|us)$/, "");
+  return removeEnding(value, ["um", "us"]);
 }
 
 export function deriveVerbStems(
@@ -71,7 +87,7 @@ export function deriveVerbStems(
   return {
     presentStem: removeEnding(principalParts.infinitive.trim(), infinitiveEndings[conjugation]),
     perfectStem: removeEnding(principalParts.perfect.trim(), ["ī", "i"]),
-    supineStem: removeEnding(principalParts.supine.trim(), ["um", "us"])
+    supineStem: supineStemFrom(principalParts.supine)
   };
 }
 
@@ -166,7 +182,16 @@ function nounEnding(entry: NounEntry, latinCase: LatinCase, number: LatinNumber)
 
   if (latinCase === "nom" && number === "sg") return { stem: nominative, ending: "", whole: nominative };
   if (latinCase === "voc" && number === "sg") {
-    if (declension === "2" && gender !== "n" && nominative.endsWith("us")) return { stem, ending: "e" };
+    if (declension === "2" && gender !== "n" && nominative.endsWith("us")) {
+      // deus borrows its nominative; there is no *dee
+      if (nominative === "deus") return { stem: nominative, ending: "", whole: nominative };
+      // -ius contracts rather than taking -e: fīlius → fīlī, not fīlie
+      if (nominative.endsWith("ius")) {
+        const contracted = `${nominative.slice(0, -3)}ī`;
+        return { stem: contracted, ending: "", whole: contracted };
+      }
+      return { stem, ending: "e" };
+    }
     return { stem: nominative, ending: "", whole: nominative };
   }
 
@@ -871,13 +896,22 @@ const IRREGULAR_ACTIVE: Record<NonNullable<VerbEntry["irregularKey"]>, Irregular
       plupf: ["tulissem", "tulissēs", "tulisset", " tulissēmus".trim(), "tulissētis", "tulissent"]
     }
   },
-  volo: irregularLikeThird("vol", "voluī", ["volō", "vīs", "vult", "volumus", "vultis", "volunt"], ["velim", "velīs", "velit", "velīmus", "velītis", "velint"]),
-  nolo: irregularLikeThird("nol", "noluī", ["nōlō", "nōn vīs", "nōn vult", "nōlumus", "nōn vultis", "nōlunt"], ["nōlim", "nōlīs", "nōlit", "nōlīmus", "nōlītis", "nōlint"]),
-  malo: irregularLikeThird("mal", "maluī", ["mālō", "māvīs", "māvult", "mālumus", "māvultis", "mālunt"], ["mālim", "mālīs", "mālit", "mālīmus", "mālītis", "mālint"])
+  volo: irregularLikeThird("vol", "velle", "voluī", ["volō", "vīs", "vult", "volumus", "vultis", "volunt"], ["velim", "velīs", "velit", "velīmus", "velītis", "velint"]),
+  nolo: irregularLikeThird("nōl", "nōlle", "nōluī", ["nōlō", "nōn vīs", "nōn vult", "nōlumus", "nōn vultis", "nōlunt"], ["nōlim", "nōlīs", "nōlit", "nōlīmus", "nōlītis", "nōlint"]),
+  malo: irregularLikeThird("māl", "mālle", "māluī", ["mālō", "māvīs", "māvult", "mālumus", "māvultis", "mālunt"], ["mālim", "mālīs", "mālit", "mālīmus", "mālītis", "mālint"])
 };
 
-function irregularLikeThird(presentStem: string, perfect: string, present: SixForms, subjPresent: SixForms): IrregularMap {
+function irregularLikeThird(
+  presentStem: string,
+  infinitive: string,
+  perfect: string,
+  present: SixForms,
+  subjPresent: SixForms
+): IrregularMap {
   const perfectStem = removeEnding(perfect, ["ī", "i"]);
+  // the imperfect subjunctive is the present infinitive plus personal endings:
+  // velle → vellem, nōlle → nōllem. Appending "l" to the stem gives *vollem.
+  const infinitiveStem = removeEnding(infinitive.trim(), ["e"]);
   return {
     indicative: {
       pres: present,
@@ -889,7 +923,7 @@ function irregularLikeThird(presentStem: string, perfect: string, present: SixFo
     },
     subjunctive: {
       pres: subjPresent,
-      impf: ["em", "ēs", "et", "ēmus", "ētis", "ent"].map((suffix) => `${presentStem}l${suffix}`) as SixForms,
+      impf: ["em", "ēs", "et", "ēmus", "ētis", "ent"].map((suffix) => `${infinitiveStem}${suffix}`) as SixForms,
       pf: ["erim", "erīs", "erit", "erīmus", "erītis", "erint"].map((suffix) => `${perfectStem}${suffix}`) as SixForms,
       plupf: ["issem", "issēs", "isset", "issēmus", "issētis", "issent"].map((suffix) => `${perfectStem}${suffix}`) as SixForms
     }

@@ -97,16 +97,16 @@
  {
   "id": "acer-adj",
   "chapter": 34,
-  "lemma": "acer",
-  "dict": "acer ācrīs ācre",
+  "lemma": "ācer",
+  "dict": "ācer ācris ācre",
   "definition": "sharp",
   "flags": [
    "3term"
   ],
   "pos": "adj",
   "pp": [
-   "acer",
-   "ācrīs",
+   "ācer",
+   "ācris",
    "ācre",
    null
   ]
@@ -1357,15 +1357,15 @@
   "morphOverride": "canis-n.json"
  },
  {
-  "id": "capi-v",
+  "id": "capio-v",
   "chapter": 4,
-  "lemma": "cāpī",
-  "dict": "cāpī capere cēpī captum",
+  "lemma": "capiō",
+  "dict": "capiō capere cēpī captum",
   "definition": "take, seize, get",
   "flags": [],
   "pos": "v",
   "pp": [
-   "cāpī",
+   "capiō",
    "capere",
    "cēpī",
    "captum"
@@ -2518,14 +2518,17 @@
   "lemma": "dō",
   "dict": "dō dare dedī datum",
   "definition": "give",
-  "flags": [],
+  "flags": [
+   "short-stem-vowel"
+  ],
   "pos": "v",
   "pp": [
    "dō",
    "dare",
    "dedī",
    "datum"
-  ]
+  ],
+  "morphOverride": "do-v.json"
  },
  {
   "id": "doceo-v",
@@ -2744,13 +2747,13 @@
   "id": "dux-n",
   "chapter": 10,
   "lemma": "dux",
-  "dict": "dux dūcis m.",
+  "dict": "dux ducis m.",
   "definition": "leader",
   "flags": [],
   "pos": "n",
   "pp": [
    "dux",
-   "dūcis",
+   "ducis",
    null,
    null
   ],
@@ -2777,13 +2780,13 @@
   "id": "edo-v",
   "chapter": 29,
   "lemma": "edō",
-  "dict": "edō ēdere ēdī ēsum",
+  "dict": "edō edere ēdī ēsum",
   "definition": "eat",
   "flags": [],
   "pos": "v",
   "pp": [
    "edō",
-   "ēdere",
+   "edere",
    "ēdī",
    "ēsum"
   ]
@@ -3238,7 +3241,7 @@
   "id": "felix-adj",
   "chapter": 7,
   "lemma": "fēlīx",
-  "dict": "fēlīx (felicis)",
+  "dict": "fēlīx (fēlīcis)",
   "definition": "fortunate, happy, prosperous",
   "flags": [
    "1term"
@@ -3250,7 +3253,7 @@
    "fēlīx",
    null
   ],
-  "genSg": "felicis"
+  "genSg": "fēlīcis"
  },
  {
   "id": "femina-n",
@@ -3384,7 +3387,8 @@
    "fierī",
    "factum",
    null
-  ]
+  ],
+  "morphOverride": "fio-v.json"
  },
  {
   "id": "flumen-n",
@@ -3701,14 +3705,14 @@
   "id": "gracilis-adj",
   "chapter": 25,
   "lemma": "gracilis",
-  "dict": "gracilis gracilē",
+  "dict": "gracilis gracile",
   "definition": "graceful",
   "flags": [],
   "pos": "adj",
   "pp": [
    "gracilis",
    "gracilis",
-   "gracilē",
+   "gracile",
    null
   ]
  },
@@ -3760,13 +3764,13 @@
  {
   "id": "harena-n",
   "chapter": 4,
-  "lemma": "harēnā",
-  "dict": "harēnā harēnae f.",
+  "lemma": "harēna",
+  "dict": "harēna harēnae f.",
   "definition": "sand, arena",
   "flags": [],
   "pos": "n",
   "pp": [
-   "harēnā",
+   "harēna",
    "harēnae",
    null,
    null
@@ -3999,7 +4003,7 @@
   "chapter": 14,
   "lemma": "ignis",
   "dict": "ignis ignis m.",
-  "definition": "fre",
+  "definition": "fire",
   "flags": [
    "i-stem?"
   ],
@@ -4497,13 +4501,13 @@
  {
   "id": "ira-n",
   "chapter": 1,
-  "lemma": "īrā",
-  "dict": "īrā īrae f.",
+  "lemma": "īra",
+  "dict": "īra īrae f.",
   "definition": "anger",
   "flags": [],
   "pos": "n",
   "pp": [
-   "īrā",
+   "īra",
    "īrae",
    null,
    null
@@ -4881,13 +4885,13 @@
  {
   "id": "lego-v",
   "chapter": 22,
-  "lemma": "lēgō",
-  "dict": "lēgō legere lēgī lectum",
+  "lemma": "legō",
+  "dict": "legō legere lēgī lectum",
   "definition": "read, choose",
   "flags": [],
   "pos": "v",
   "pp": [
-   "lēgō",
+   "legō",
    "legere",
    "lēgī",
    "lectum"
@@ -5568,17 +5572,17 @@
   "gender": "m"
  },
  {
-  "id": "militaris-v",
+  "id": "militaris-adj",
   "chapter": 34,
   "lemma": "mīlitāris",
-  "dict": "mīlitāris mllītāre",
+  "dict": "mīlitāris mīlitāre",
   "definition": "military",
   "flags": [],
-  "pos": "v",
+  "pos": "adj",
   "pp": [
    "mīlitāris",
-   "mllītāre",
-   null,
+   "mīlitāris",
+   "mīlitāre",
    null
   ]
  },
@@ -5634,7 +5638,7 @@
   "id": "miror-v",
   "chapter": 20,
   "lemma": "mīror",
-  "dict": "mīror mirārī mīrātus",
+  "dict": "mīror mīrārī mīrātus",
   "definition": "admire, love",
   "flags": [
    "deponent"
@@ -5642,7 +5646,7 @@
   "pos": "v",
   "pp": [
    "mīror",
-   "mirārī",
+   "mīrārī",
    "mīrātus",
    null
   ]
@@ -5792,19 +5796,20 @@
  {
   "id": "morior-v",
   "chapter": 20,
-  "lemma": "mōrior",
-  "dict": "mōrior mōrī mortuus",
+  "lemma": "morior",
+  "dict": "morior morī mortuus",
   "definition": "die",
   "flags": [
    "deponent"
   ],
   "pos": "v",
   "pp": [
-   "mōrior",
-   "mōrī",
+   "morior",
+   "morī",
    "mortuus",
    null
-  ]
+  ],
+  "morphOverride": "morior-v.json"
  },
  {
   "id": "mors-n",
@@ -6109,7 +6114,7 @@
   "id": "navis-n",
   "chapter": 30,
   "lemma": "nāvis",
-  "dict": "nāvis nāvīs f.",
+  "dict": "nāvis nāvis f.",
   "definition": "ship",
   "flags": [
    "i-stem?"
@@ -6117,7 +6122,7 @@
   "pos": "n",
   "pp": [
    "nāvis",
-   "nāvīs",
+   "nāvis",
    null,
    null
   ],
@@ -6126,13 +6131,13 @@
  {
   "id": "ne-other",
   "chapter": 3,
-  "lemma": "nē",
-  "dict": "nē",
+  "lemma": "-ne",
+  "dict": "-ne",
   "definition": "signals a yes/no question",
   "flags": [],
   "pos": "other",
   "pp": [
-   "nē",
+   "-ne",
    null,
    null,
    null
@@ -6703,13 +6708,13 @@
  {
   "id": "octo-num",
   "chapter": 8,
-  "lemma": "octo",
-  "dict": "octo",
+  "lemma": "octō",
+  "dict": "octō",
   "definition": "(indecl numeral adj.) eight",
   "flags": [],
   "pos": "num",
   "pp": [
-   "octo",
+   "octō",
    null,
    null,
    null
@@ -7778,14 +7783,14 @@
   "id": "privatus-adj",
   "chapter": 35,
   "lemma": "prīvātus",
-  "dict": "prīvātus prīvāta pivātum",
+  "dict": "prīvātus prīvāta prīvātum",
   "definition": "private",
   "flags": [],
   "pos": "adj",
   "pp": [
    "prīvātus",
    "prīvāta",
-   "pivātum",
+   "prīvātum",
    null
   ]
  },
@@ -9054,13 +9059,13 @@
  {
   "id": "roma-n",
   "chapter": 12,
-  "lemma": "Rōmā",
-  "dict": "Rōmā Rōmae f.",
+  "lemma": "Rōma",
+  "dict": "Rōma Rōmae f.",
   "definition": "(city of) Rome",
   "flags": [],
   "pos": "n",
   "pp": [
-   "Rōmā",
+   "Rōma",
    "Rōmae",
    null,
    null
@@ -9212,13 +9217,13 @@
  {
   "id": "sapientia-n",
   "chapter": 2,
-  "lemma": "sapientiā",
-  "dict": "sapientiā sapientiae f.",
+  "lemma": "sapientia",
+  "dict": "sapientia sapientiae f.",
   "definition": "wisdom",
   "flags": [],
   "pos": "n",
   "pp": [
-   "sapientiā",
+   "sapientia",
    "sapientiae",
    null,
    null
@@ -9705,13 +9710,13 @@
  {
   "id": "sino-v",
   "chapter": 31,
-  "lemma": "sīnō",
-  "dict": "sīnō sinere sīvī situm",
+  "lemma": "sinō",
+  "dict": "sinō sinere sīvī situm",
   "definition": "allow",
   "flags": [],
   "pos": "v",
   "pp": [
-   "sīnō",
+   "sinō",
    "sinere",
    "sīvī",
    "situm"
