@@ -57,7 +57,13 @@ export interface AgreementPool {
   slots: Slot[]
 }
 
-const usable = (entry: VocabEntry): boolean => !entry.flags.includes('plural-only')
+/**
+ * Plural-only words have no singular to agree in, and a defective one has no
+ * usable citation to build a paradigm from: vīs is cited "vīs pl. vīrēs", so
+ * the engine takes "pl." for its genitive and inflects it — pl.is, pl.ī, pl.em.
+ */
+const usable = (entry: VocabEntry): boolean =>
+  !entry.flags.includes('plural-only') && !entry.flags.includes('defective')
 
 export function isEligibleNoun(entry: VocabEntry): boolean {
   return entry.pos === 'n' && usable(entry) && Boolean(entry.gender) && buildNounEntry(entry) !== null

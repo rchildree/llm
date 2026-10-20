@@ -55,6 +55,13 @@ describe('eligibility', () => {
     for (const id of ATTRIBUTIVE_PRONOUNS) expect(ids.has(id)).toBe(true)
   })
 
+  test('defective words are excluded: vīs has no genitive to decline', () => {
+    const vis = entries.find((e) => e.lemma === 'vīs')!
+    expect(vis.flags).toContain('defective')
+    expect(isEligibleNoun(vis)).toBe(false)
+    expect(full.nouns.some((e) => e.lemma === 'vīs')).toBe(false)
+  })
+
   test('plural-only words are excluded from both sides', () => {
     const all = [...full.modifiers, ...full.nouns]
     expect(all.some((e) => e.flags.includes('plural-only'))).toBe(false)
