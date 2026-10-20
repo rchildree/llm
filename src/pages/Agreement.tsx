@@ -1,9 +1,22 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useDataset } from '../app/DatasetContext'
 import AgreementRound, { type Exercise } from '../components/agree/AgreementRound'
+import MultiToggle from '../components/MultiToggle'
 import { chapterLabel, inChapterScope } from '../lib/chapters'
-import { indexPronounForms, type PronounForms } from '../lib/agree/paradigm'
+import { AGREE_CASES, indexPronounForms, type PronounForms } from '../lib/agree/paradigm'
 import { buildAgreementPool } from '../lib/agree/pairing'
+import {
+  ALL_MODIFIER_KINDS,
+  DEFAULT_AGREE_OPTIONS,
+  type AgreementOptions,
+} from '../lib/agree/options'
+import {
+  ALL_ADJ_CLASSES,
+  ALL_CASES_NO_VOC,
+  ALL_DECLENSIONS,
+  ALL_NUMBERS,
+} from '../lib/drill/config'
+import { CASE_LABELS } from '../lib/morph/labels'
 import { getSetting, setSetting } from '../storage/settings'
 
 const EXERCISES: Array<[Exercise, string]> = [
@@ -13,8 +26,24 @@ const EXERCISES: Array<[Exercise, string]> = [
   ['which-gender', 'Gender'],
 ]
 
-/** the two switches that only mean anything for a pair on screen */
+/** the two switches — and the slot options — that only mean anything for a pair on screen */
 const PAIR_EXERCISES = new Set<Exercise>(['does-it-match', 'make-it-agree'])
+
+const ADJ_CLASSES: Array<[string, string]> = [
+  ['1-2', '–us –a –um'],
+  ['3', '3rd decl.'],
+  ['irreg', 'irreg.'],
+]
+const MODIFIER_KINDS: Array<[string, string]> = [
+  ['adj', 'adjectives'],
+  ['pron', 'pronouns'],
+]
+// no vocative in this section, so the chips are the five cases it drills
+const CASES: Array<[string, string]> = AGREE_CASES.map((c) => [c, CASE_LABELS[c]])
+const NUMBERS: Array<[string, string]> = [
+  ['sg', 'singular'],
+  ['pl', 'plural'],
+]
 
 export default function Agreement() {
   const { dataset, error } = useDataset()
@@ -24,6 +53,8 @@ export default function Agreement() {
   const [easyMode, setEasyMode] = useState(false)
   const [feedback, setFeedback] = useState(true)
   const [pronounForms, setPronounForms] = useState<PronounForms | null>(null)
+  const [options, setOptions] = useState<AgreementOptions>(DEFAULT_AGREE_OPTIONS)
+  const [showOptions, setShowOptions] = useState(false)
   const [score, setScore] = useState({ done: 0, right: 0 })
 
   useEffect(() => {
@@ -33,12 +64,14 @@ export default function Agreement() {
       getSetting<Exercise>('agree.exercise', 'does-it-match'),
       getSetting<boolean>('agree.easyMode', false),
       getSetting<boolean>('agree.feedback', true),
-    ]).then(([cap, only, saved, easy, fb]) => {
+      getSetting<AgreementOptions>('agree.options', DEFAULT_AGREE_OPTIONS),
+    ]).then(([cap, only, saved, easy, fb, opts]) => {
       setChapterCap(cap)
       setChapterOnly(only)
       setExercise(saved)
       setEasyMode(easy)
       setFeedback(fb)
+      setOptions({ ...DEFAULT_AGREE_OPTIONS, ...opts })
     })
   }, [])
 
@@ -56,8 +89,17 @@ export default function Agreement() {
 
   const pool = useMemo(() => {
     if (!dataset || chapterCap === null || !pronounForms) return null
-    return buildAgreementPool(dataset.entries, { cap: chapterCap, only: chapterOnly }, pronounForms)
-  }, [dataset, chapterCap, chapterOnly, pronounForms])
+    // the chart is adjective-only by design, so "pronouns alone" must not
+    // empty it out — that choice simply has nothing to say there
+    const effective =
+      exercise === 'fill-the-chart' ? { ...options, modifierKinds: ['adj'] } : options
+    return buildAgreementPool(
+      dataset.entries,
+      { cap: chapterCap, only: chapterOnly },
+      pronounForms,
+      effective,
+    )
+  }, [dataset, chapterCap, chapterOnly, pronounForms, options, exercise])
 
   const updateCap = (cap: number) => {
     setChapterCap(cap)
@@ -67,6 +109,14 @@ export default function Agreement() {
   const toggle = <T,>(value: T, set: (v: T) => void, key: string) => {
     set(value)
     void setSetting(key, value)
+  }
+
+  const update = (patch: Partial<AgreementOptions>) => {
+    setOptions((prev) => {
+      const next = { ...prev, ...patch }
+      void setSetting('agree.options', next)
+      return next
+    })
   }
 
   if (error)
@@ -81,19 +131,33 @@ export default function Agreement() {
   ).length
 
   const adjectives = pool.modifiers.filter((e) => e.pos === 'adj').length
+  const allDeclensions = options.declensions.length === ALL_DECLENSIONS.length
+  const allAdjClasses = options.adjClasses.length === ALL_ADJ_CLASSES.length
 
   const empty =
-    nounsInScope === 0 ? (
-      <p>No nouns in chapter {label}.</p>
+    !pool.nouns.length ? (
+      nounsInScope === 0 || allDeclensions ? (
+        <p>No nouns in chapter {label}.</p>
+      ) : (
+        <p>No nouns of these declensions in chapter {label} — widen them in Options.</p>
+      )
     ) : exercise === 'fill-the-chart' && adjectives === 0 ? (
-      <p>
-        Filling in the chart needs an adjective — the first ones arrive in chapter 5.
-      </p>
+      allAdjClasses ? (
+        <p>Filling in the chart needs an adjective — the first ones arrive in chapter 5.</p>
+      ) : (
+        <p>No adjectives of these types through chapter {label} — widen them in Options.</p>
+      )
     ) : !pool.modifiers.length ? (
-      <p>
-        No adjectives or pronouns through chapter {label} yet — the first adjectives
-        arrive in chapter 5.
-      </p>
+      allAdjClasses && options.modifierKinds.length === ALL_MODIFIER_KINDS.length ? (
+        <p>
+          No adjectives or pronouns through chapter {label} yet — the first adjectives
+          arrive in chapter 5.
+        </p>
+      ) : (
+        <p>No modifiers of these kinds through chapter {label} — widen them in Options.</p>
+      )
+    ) : !pool.slots.length ? (
+      <p>Choose at least one case and one number in Options.</p>
     ) : (
       <p>Nothing to practise with these settings.</p>
     )
@@ -148,6 +212,9 @@ export default function Agreement() {
               </button>
             </>
           )}
+          <button className="btn-secondary" onClick={() => setShowOptions((v) => !v)}>
+            {showOptions ? 'Hide options' : 'Options'}
+          </button>
         </div>
       </div>
 
@@ -165,6 +232,79 @@ export default function Agreement() {
           </button>
         ))}
       </div>
+
+      {showOptions && (
+        <div className="card options">
+          <div className="opt-group">
+            <span className="opt-label">Declensions</span>
+            <MultiToggle
+              values={options.declensions}
+              options={ALL_DECLENSIONS}
+              all={ALL_DECLENSIONS}
+              onChange={(declensions) => update({ declensions })}
+            />
+          </div>
+
+          {PAIR_EXERCISES.has(exercise) && (
+            <div className="opt-group">
+              <span className="opt-label">Modifiers</span>
+              <MultiToggle
+                values={options.modifierKinds}
+                options={MODIFIER_KINDS}
+                all={ALL_MODIFIER_KINDS}
+                onChange={(modifierKinds) => update({ modifierKinds })}
+              />
+            </div>
+          )}
+
+          {exercise !== 'which-gender' && (
+            <div className="opt-group">
+              <span className="opt-label">Adjective type</span>
+              <MultiToggle
+                values={options.adjClasses}
+                options={ADJ_CLASSES}
+                all={ALL_ADJ_CLASSES}
+                onChange={(adjClasses) => update({ adjClasses })}
+              />
+            </div>
+          )}
+
+          {PAIR_EXERCISES.has(exercise) && (
+            <>
+              <div className="opt-group">
+                <span className="opt-label">Cases</span>
+                <MultiToggle
+                  values={options.cases}
+                  options={CASES}
+                  all={ALL_CASES_NO_VOC}
+                  onChange={(cases) => update({ cases })}
+                />
+              </div>
+              <div className="opt-group">
+                <span className="opt-label">Numbers</span>
+                <MultiToggle
+                  values={options.numbers}
+                  options={NUMBERS}
+                  all={ALL_NUMBERS}
+                  onChange={(numbers) => update({ numbers })}
+                />
+              </div>
+            </>
+          )}
+
+          {exercise === 'fill-the-chart' && (
+            <p className="muted opt-note">
+              The chart is always the whole paradigm, so cases and numbers do not apply
+              here — and its modifier is always an adjective.
+            </p>
+          )}
+          {exercise === 'which-gender' && (
+            <p className="muted opt-note">
+              Gender asks about the noun alone, so only the declensions apply here.
+            </p>
+          )}
+        </div>
+      )}
 
       {chapterOnly && (
         <p className="muted agree-scope-note">

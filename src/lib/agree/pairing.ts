@@ -18,6 +18,13 @@ import {
   type Slot,
 } from './paradigm'
 import { sharedTriples, triplesFor, type Triple } from './match'
+import {
+  allowsModifier,
+  allowsNoun,
+  slotsFor,
+  DEFAULT_AGREE_OPTIONS,
+  type AgreementOptions,
+} from './options'
 
 /** A form is typeable when there is something to put in the box. */
 const hasTypeableAnswer = (form: Form): boolean =>
@@ -43,6 +50,11 @@ export const ATTRIBUTIVE_PRONOUNS = new Set([
 export interface AgreementPool {
   modifiers: VocabEntry[]
   nouns: VocabEntry[]
+  /**
+   * The case/number slots a question may be built on. "Fill in the chart"
+   * ignores this — a chart is the whole paradigm or it is not a chart.
+   */
+  slots: Slot[]
 }
 
 const usable = (entry: VocabEntry): boolean => !entry.flags.includes('plural-only')
@@ -61,18 +73,28 @@ export function isEligibleModifier(entry: VocabEntry, pronounForms?: PronounForm
  * Nouns obey the chapter scope exactly; modifiers always draw from everything
  * *through* the cap. Applying "only chapter N" to both would leave 16 of the
  * 45 chapters with no modifier at all and nothing to practise.
+ *
+ * `options` is the panel's doing: declensions, modifier kinds and the slots
+ * the questions may ask about.
  */
 export function buildAgreementPool(
   entries: VocabEntry[],
   scope: ChapterScope,
   pronounForms?: PronounForms,
+  options: AgreementOptions = DEFAULT_AGREE_OPTIONS,
 ): AgreementPool {
   const throughCap: ChapterScope = { cap: scope.cap, only: false }
   return {
     modifiers: entries.filter(
-      (e) => inChapterScope(e.chapter, throughCap) && isEligibleModifier(e, pronounForms),
+      (e) =>
+        inChapterScope(e.chapter, throughCap) &&
+        isEligibleModifier(e, pronounForms) &&
+        allowsModifier(e, options),
     ),
-    nouns: entries.filter((e) => inChapterScope(e.chapter, scope) && isEligibleNoun(e)),
+    nouns: entries.filter(
+      (e) => inChapterScope(e.chapter, scope) && isEligibleNoun(e) && allowsNoun(e, options),
+    ),
+    slots: slotsFor(options),
   }
 }
 
@@ -123,10 +145,11 @@ export function makeItAgree(
   pronounForms?: PronounForms,
   rng: Rng = Math.random,
 ): MakeItAgreeQuestion | null {
+  if (!pool.slots.length) return null
   for (let attempt = 0; attempt < 24; attempt++) {
     const pair = pickPair(pool, pronounForms, rng)
     if (!pair) return null
-    const slot = pick(allSlots(), rng)
+    const slot = pick(pool.slots, rng)
     const key = slotKey(slot.c, slot.n)
     const modifierForm = pair.modifierParadigm.get(key)
     const nounForm = pair.nounParadigm.get(key)
@@ -162,7 +185,7 @@ export function fillTheChart(
 ): FillTheChartQuestion | null {
   const adjectives = pool.modifiers.filter((e) => e.pos === 'adj')
   if (!adjectives.length) return null
-  const adjOnly: AgreementPool = { modifiers: adjectives, nouns: pool.nouns }
+  const adjOnly: AgreementPool = { modifiers: adjectives, nouns: pool.nouns, slots: pool.slots }
 
   for (let attempt = 0; attempt < 24; attempt++) {
     const pair = pickPair(adjOnly, pronounForms, rng)
@@ -230,6 +253,9 @@ export function doesItMatch(
   pronounForms?: PronounForms,
   rng: Rng = Math.random,
 ): DoesItMatchQuestion | null {
+  if (!pool.slots.length) return null
+  const asked = new Set(pool.slots.map((s) => slotKey(s.c, s.n)))
+
   for (let attempt = 0; attempt < 60; attempt++) {
     const pair = pickPair(pool, pronounForms, rng)
     if (!pair) return null
@@ -242,11 +268,15 @@ export function doesItMatch(
     const nounSurface = pick(nounSurfaces, rng)
     const nounTriples = triplesFor(nounByGender, nounSurface)
     if (!nounTriples.length) continue
+    // the form keeps every reading it really has, but the question has to turn
+    // on a slot the options left switched on
+    const askable = nounTriples.filter((t) => asked.has(slotKey(t.c, t.n)))
+    if (!askable.length) continue
 
     let modifierSurface: string
     if (wantMatch) {
       // inflect the modifier into one of the slots the noun form can fill
-      const target = pick(nounTriples, rng)
+      const target = pick(askable, rng)
       const form = byGender[target.g]?.get(slotKey(target.c, target.n))
       if (!form?.whole) continue
       modifierSurface = form.whole

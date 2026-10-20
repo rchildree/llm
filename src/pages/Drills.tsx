@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useDataset } from '../app/DatasetContext'
+import MultiToggle from '../components/MultiToggle'
 import WhichAreDrill from '../components/WhichAreDrill'
 import {
   ALL_ADJ_CLASSES, ALL_CASES_NO_VOC, ALL_CONJUGATIONS, ALL_DECLENSIONS,
@@ -38,44 +39,6 @@ const PTC_TYPES: Array<[string, string]> = [
   ['ptc.fut.act', 'future active'],
   ['ptc.fut.pass', 'gerundive'],
 ]
-
-function MultiToggle({
-  values, options, onChange, all,
-}: {
-  values: string[]
-  options: Array<[string, string]> | string[]
-  onChange: (values: string[]) => void
-  /** values selected by the "All" shortcut (may deliberately exclude e.g. voc) */
-  all?: string[]
-}) {
-  const opts: Array<[string, string]> = options.map((o) => (Array.isArray(o) ? o : [o, o]))
-  const toggle = (v: string) =>
-    onChange(values.includes(v) ? values.filter((x) => x !== v) : [...values, v])
-  const allOn = all !== undefined && all.every((v) => values.includes(v)) && values.length === all.length
-  return (
-    <div className="multi-toggle">
-      {all !== undefined && (
-        <button
-          type="button"
-          className={allOn ? 'toggle on' : 'toggle'}
-          onClick={() => onChange([...all])}
-        >
-          All
-        </button>
-      )}
-      {opts.map(([value, label]) => (
-        <button
-          key={value}
-          type="button"
-          className={values.includes(value) ? 'toggle on' : 'toggle'}
-          onClick={() => toggle(value)}
-        >
-          {label}
-        </button>
-      ))}
-    </div>
-  )
-}
 
 function Check({ label, value, onChange }: { label: string; value: boolean; onChange: (v: boolean) => void }) {
   return (
