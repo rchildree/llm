@@ -423,6 +423,7 @@ input:focus, select:focus, button:focus-visible {
 /* gender */
 .gender-word { display: flex; flex-direction: column; gap: 0.2rem; }
 .gender-gen { color: var(--text-light); }
+.gender-dict { font-size: 1.3rem; }
 .gender-choice { min-width: 3.2rem; font-family: var(--font-serif); }
 .gender-help { margin-top: -0.2rem; }
 .gender-rules { display: flex; flex-direction: column; gap: 0.5rem; list-style: none; }

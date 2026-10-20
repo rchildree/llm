@@ -60,7 +60,7 @@ export default function GenderHelper({ question, onNext }: Props) {
   const { lat } = useDisplay()
   const [answer, setAnswer] = useState<Gender | null>(null)
 
-  const { entry, answers } = question
+  const { entry, answers, shown } = question
   const correct = answer !== null && answers.includes(answer)
   const genitive = entry.pp[1]
   const is = answers.map((g) => GENDER_WORD[g]).join(' or ')
@@ -71,9 +71,21 @@ export default function GenderHelper({ question, onNext }: Props) {
 
       <div className="gender-word">
         <p className="latin agree-pair">
-          {lat(entry.lemma)}
-          {genitive && <span className="gender-gen">, {lat(genitive)}</span>}
+          {shown ? (
+            lat(shown.surface)
+          ) : (
+            <>
+              {lat(entry.lemma)}
+              {genitive && <span className="gender-gen">, {lat(genitive)}</span>}
+            </>
+          )}
         </p>
+        {shown && answer !== null && (
+          <p className="latin gender-dict">
+            {lat(entry.lemma)}
+            {genitive && <span className="gender-gen">, {lat(genitive)}</span>}
+          </p>
+        )}
         <p className="muted">{entry.definition}</p>
       </div>
 

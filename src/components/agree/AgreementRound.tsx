@@ -32,6 +32,8 @@ interface Props {
   exercise: Exercise
   easyMode: boolean
   feedback: boolean
+  /** gender only: show an inflected form instead of the citation */
+  genderHard: boolean
   onScore: (correct: boolean) => void
   /** rendered when the settings leave nothing to ask */
   empty: React.ReactNode
@@ -48,6 +50,7 @@ export default function AgreementRound({
   exercise,
   easyMode,
   feedback,
+  genderHard,
   onScore,
   empty,
 }: Props) {
@@ -58,7 +61,7 @@ export default function AgreementRound({
       case 'fill-the-chart':
         return fillTheChart(pool, pronounForms)
       case 'which-gender':
-        return whichGender(pool.nouns)
+        return whichGender(pool.nouns, genderHard)
       default:
         return doesItMatch(pool, Math.random() < 0.5, pronounForms)
     }

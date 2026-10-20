@@ -53,6 +53,7 @@ export default function Agreement() {
   const [easyMode, setEasyMode] = useState(false)
   const [feedback, setFeedback] = useState(true)
   const [pronounForms, setPronounForms] = useState<PronounForms | null>(null)
+  const [genderHard, setGenderHard] = useState(false)
   const [options, setOptions] = useState<AgreementOptions>(DEFAULT_AGREE_OPTIONS)
   const [showOptions, setShowOptions] = useState(false)
   const [score, setScore] = useState({ done: 0, right: 0 })
@@ -65,13 +66,15 @@ export default function Agreement() {
       getSetting<boolean>('agree.easyMode', false),
       getSetting<boolean>('agree.feedback', true),
       getSetting<AgreementOptions>('agree.options', DEFAULT_AGREE_OPTIONS),
-    ]).then(([cap, only, saved, easy, fb, opts]) => {
+      getSetting<boolean>('agree.genderHard', false),
+    ]).then(([cap, only, saved, easy, fb, opts, hard]) => {
       setChapterCap(cap)
       setChapterOnly(only)
       setExercise(saved)
       setEasyMode(easy)
       setFeedback(fb)
       setOptions({ ...DEFAULT_AGREE_OPTIONS, ...opts })
+      setGenderHard(hard)
     })
   }, [])
 
@@ -212,6 +215,19 @@ export default function Agreement() {
               </button>
             </>
           )}
+          {exercise === 'which-gender' && (
+            <button
+              type="button"
+              role="switch"
+              aria-checked={genderHard}
+              className={'switch' + (genderHard ? ' on' : '')}
+              onClick={() => toggle(!genderHard, setGenderHard, 'agree.genderHard')}
+              title="Show an inflected form, and hold the dictionary entry back"
+            >
+              <span className="switch-track"><span className="switch-thumb" /></span>
+              Hard mode
+            </button>
+          )}
           <button className="btn-secondary" onClick={() => setShowOptions((v) => !v)}>
             {showOptions ? 'Hide options' : 'Options'}
           </button>
@@ -314,12 +330,13 @@ export default function Agreement() {
       )}
 
       <AgreementRound
-        key={`${exercise}:${chapterCap}:${chapterOnly}`}
+        key={`${exercise}:${chapterCap}:${chapterOnly}:${genderHard}`}
         pool={pool}
         pronounForms={pronounForms}
         exercise={exercise}
         easyMode={easyMode}
         feedback={feedback}
+        genderHard={genderHard}
         onScore={(correct) =>
           setScore((s) => ({ done: s.done + 1, right: s.right + (correct ? 1 : 0) }))
         }
