@@ -13,6 +13,7 @@ export default function Layout() {
         <span className="brand">LLM: Latin learning Machine</span>
         <NavLink to="/flashcards" className={link}>Flashcards</NavLink>
         <NavLink to="/drills" className={link}>Drills</NavLink>
+        <NavLink to="/agreement" className={link}>Agreement</NavLink>
         <span className="spacer" />
         <button
           type="button"

@@ -4,6 +4,7 @@ import { DatasetProvider } from './DatasetContext'
 import { DisplayProvider } from './DisplayContext'
 import Flashcards from '../pages/Flashcards'
 import Drills from '../pages/Drills'
+import Agreement from '../pages/Agreement'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
               <Route index element={<Navigate to="drills" replace />} />
               <Route path="flashcards" element={<Flashcards />} />
               <Route path="drills" element={<Drills />} />
+              <Route path="agreement" element={<Agreement />} />
             </Route>
           </Routes>
         </DatasetProvider>

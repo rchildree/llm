@@ -13,6 +13,11 @@
   /* semantic */
   --correct:     #2e9e5b;
   --wrong:       #d64545;
+  /* "right apart from vowel quantity" */
+  --quantity:    #c88a1e;
+  --quantity-bg: #fdf6e7;
+  /* feedback-panel highlight */
+  --lit:         #fff4cc;
 
   --border:      1px solid var(--grey);
   --radius:      3px;

@@ -5,22 +5,26 @@
  * morphology.ts stays byte-compatible with upstream.
  */
 import {
-  deriveAdjectiveStem,
   deriveNounDeclension,
-  deriveNounStem,
   deriveVerbConjugation,
   detectIrregularVerb,
   generateEntrySections,
   inferDeponentVerb,
   deriveVerbStems,
 } from './morphology'
+import {
+  buildAdjectiveEntry,
+  buildNounEntry,
+  demacron,
+  gendersOf,
+  mixedIStemAblSg,
+  stripSuffix,
+} from './entries'
 import type {
-  AdjectiveEntry,
   ChartSection,
   Gender,
   LatinCase,
   LatinNumber,
-  NounEntry,
   Person,
   PronounEntry,
   PronounType,
@@ -40,16 +44,6 @@ const FULL_VISIBILITY: VisibilitySettings = {
   showIndicativePassive: true,
   showSubjunctiveActive: true,
   showSubjunctivePassive: true,
-}
-
-const demacron = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '')
-
-const stripSuffix = (s: string, suffixes: string[]): string | null => {
-  const plain = demacron(s)
-  for (const suf of suffixes) {
-    if (plain.endsWith(suf)) return s.slice(0, s.length - suf.length)
-  }
-  return null
 }
 
 /** Collects surface → analyses, deduplicating identical analyses. */
@@ -138,51 +132,12 @@ export function generateFormsForEntry(
 
 // ── nouns ────────────────────────────────────────────────────────────────────
 
-function isIStem(entry: VocabEntry): boolean {
-  if (entry.flags.includes('not-i-stem')) return false
-  return entry.flags.includes('i-stem') || entry.flags.includes('i-stem?')
-}
-
 function nounForms(entry: VocabEntry): FormRecord[] {
-  const [nom, gen] = entry.pp
-  if (!gen || !entry.gender) return []
-  const genders: Gender[] = entry.gender === 'mf' ? ['m', 'f'] : [entry.gender]
+  const morphEntry = buildNounEntry(entry)
+  if (!morphEntry) return []
+  const genders = gendersOf(entry)
   const pluralOnly = entry.flags.includes('plural-only')
-
-  let declension: NounEntry['declension']
-  let stem: string
-  if (pluralOnly) {
-    // citation is nom.pl + gen.pl (aedēs aedium, castra castrōrum)
-    const byEnding: Array<[string[], NounEntry['declension']]> = [
-      [['arum'], '1'],
-      [['orum'], '2'],
-      [['uum'], '4'],
-      [['erum'], '5'],
-      [['um'], '3'],
-    ]
-    const match = byEnding.find(([sufs]) => stripSuffix(gen, sufs) !== null)
-    if (!match) return []
-    declension = match[1]
-    stem = stripSuffix(gen, match[0])!
-    if (declension === '3' && stripSuffix(gen, ['ium'])) stem = stripSuffix(gen, ['ium'])!
-  } else {
-    declension = deriveNounDeclension(gen, nom)
-    stem = deriveNounStem(declension, gen)
-  }
-
-  const iStem = declension === '3' && (isIStem(entry) || (pluralOnly && demacron(gen).endsWith('ium')))
-  const morphEntry: NounEntry = {
-    id: entry.id,
-    lemma: entry.lemma,
-    displayName: entry.lemma,
-    pos: 'noun',
-    declension,
-    gender: genders[0],
-    nominative: nom ?? entry.lemma,
-    genitive: gen,
-    stem,
-    iStem,
-  }
+  const mixedAblSg = mixedIStemAblSg(morphEntry)
 
   const collector = new Collector()
   const [section] = generateEntrySections(morphEntry, FULL_VISIBILITY)
@@ -192,8 +147,7 @@ function nounForms(entry: VocabEntry): FormRecord[] {
       const n = cell.slot.number as LatinNumber
       if (pluralOnly && n === 'sg') continue
       // mixed i-stems (the classroom default) take abl.sg. -e, not the engine's pure-i-stem -ī
-      const surface =
-        iStem && genders[0] !== 'n' && c === 'abl' && n === 'sg' ? `${stem}e` : cell.generatedText
+      const surface = mixedAblSg && c === 'abl' && n === 'sg' ? mixedAblSg : cell.generatedText
       for (const g of genders) collector.add(surface, { k: 'nom', c, n, g })
     }
   }
@@ -201,56 +155,6 @@ function nounForms(entry: VocabEntry): FormRecord[] {
 }
 
 // ── adjectives ───────────────────────────────────────────────────────────────
-
-function buildAdjectiveEntry(entry: VocabEntry): AdjectiveEntry | null {
-  const [pp1, pp2, pp3] = entry.pp
-  const base = {
-    id: entry.id,
-    lemma: entry.lemma,
-    displayName: entry.lemma,
-    pos: 'adjective' as const,
-    degrees: ['positive' as const],
-  }
-
-  if (entry.flags.includes('comp')) return null // irregular comparatives need override paradigms
-
-  if (entry.flags.includes('1term')) {
-    if (!entry.genSg) return null
-    return {
-      ...base,
-      adjectiveClass: '3',
-      nominative: pp1,
-      stem: deriveAdjectiveStem(entry.genSg),
-    }
-  }
-
-  if (!pp2 || !pp3) return null
-
-  // 3rd declension, 2- or 3-termination: neuter ends in -e
-  if (demacron(pp3).endsWith('e')) {
-    const stem = stripSuffix(pp2, ['is']) ?? pp2
-    return {
-      ...base,
-      adjectiveClass: '3',
-      nominative: pp1,
-      feminineForm: pp2,
-      neuterForm: pp3,
-      stem,
-    }
-  }
-
-  // 1st/2nd declension (incl. -er and pronominal); stem from the feminine
-  const stem = stripSuffix(pp2, ['a', 'ae']) ?? pp2
-  return {
-    ...base,
-    adjectiveClass: '1-2',
-    pronominal: entry.flags.includes('pronominal') || undefined,
-    nominative: pp1,
-    feminineForm: pp2,
-    neuterForm: pp3,
-    stem,
-  }
-}
 
 /** Column labels are built from GENDER_LABELS, e.g. "M./F." — recover the gender group. */
 function gendersFromColumnLabel(label: string): Gender[] {

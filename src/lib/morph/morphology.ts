@@ -177,7 +177,7 @@ function makeCell(
   };
 }
 
-function nounEnding(entry: NounEntry, latinCase: LatinCase, number: LatinNumber): { stem: string; ending: string; whole?: string } {
+export function nounEnding(entry: NounEntry, latinCase: LatinCase, number: LatinNumber): { stem: string; ending: string; whole?: string } {
   const { declension, gender, stem, nominative, iStem } = entry;
 
   if (latinCase === "nom" && number === "sg") return { stem: nominative, ending: "", whole: nominative };
@@ -310,7 +310,7 @@ function defaultAoNeuter(entry: AdjectiveEntry, stem: string): string {
   return `${stem}um`;
 }
 
-function adjectiveEnding(
+export function adjectiveEnding(
   entry: AdjectiveEntry,
   degree: "positive" | "comparative" | "superlative",
   gender: Gender,

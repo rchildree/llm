@@ -273,3 +273,135 @@ input:focus, select:focus, button:focus-visible {
 .grade-perfect { color: var(--correct); font-weight: 600; }
 .grade-partial { color: var(--text); }
 .session-score { margin-top: 1rem; }
+
+/* agreement */
+.agree-tabs { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.5rem 0 1rem; }
+.agree-scope-note { margin: -0.5rem 0 1rem; }
+.agree-card { display: flex; flex-direction: column; gap: 0.9rem; }
+
+.agree-pair { font-size: 1.8rem; }
+
+.agree-fields { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+.agree-field { display: flex; flex-direction: column; gap: 0.3rem; }
+.agree-field-label {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+.agree-field-row { display: flex; align-items: baseline; gap: 0.1rem; }
+.agree-stem-fixed { font-size: 1.5rem; color: var(--text); }
+.agree-input {
+  width: 5rem;
+  font-size: 1.4rem;
+  padding: 0.1rem 0.4rem;
+  border: var(--border);
+  border-bottom: 2px solid var(--grey-dark);
+  border-radius: var(--radius);
+}
+.agree-field-right .agree-input { border-color: var(--correct); color: var(--correct); }
+.agree-field-wrong .agree-input { border-color: var(--wrong); color: var(--wrong); }
+.agree-field-quantity .agree-input { border-color: var(--quantity); background: var(--quantity-bg); }
+.agree-correction { font-size: 1.2rem; color: var(--correct); margin-left: 0.5rem; }
+
+.macron-row { display: flex; align-items: center; gap: 0.3rem; }
+.macron-key {
+  min-width: 2rem;
+  padding: 0.2rem 0.5rem;
+  border: var(--border);
+  border-radius: var(--radius);
+  background: var(--grey-light);
+  font-size: 1.05rem;
+}
+.macron-key:hover:not(:disabled) { border-color: var(--accent-mid); background: var(--white); }
+.macron-key:disabled { opacity: 0.4; cursor: default; }
+.macron-hint { margin-left: 0.4rem; }
+
+.agree-didyoumean {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--quantity);
+  border-radius: var(--radius-lg);
+  background: var(--quantity-bg);
+  font-size: 0.9rem;
+}
+/* the whole question is one macron, so render the options big enough to see it */
+.agree-didyoumean button {
+  padding: 0.2rem 0.9rem;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.agree-readings { display: flex; flex-direction: column; gap: 0.25rem; }
+.agree-readings .latin { font-size: 1.05rem; }
+
+/* paradigm chart, shared by easy mode and the feedback panel */
+.agree-chart { border-collapse: collapse; font-size: 0.95rem; }
+.agree-chart th, .agree-chart td { padding: 0.15rem 0.9rem 0.15rem 0; text-align: left; }
+.agree-chart thead th { padding-bottom: 0.5rem; vertical-align: bottom; }
+.agree-head-word { display: block; font-size: 1rem; }
+.agree-type {
+  display: inline-block;
+  margin-top: 0.15rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  background: var(--grey-light);
+  color: var(--text-light);
+  font-size: 0.7rem;
+  font-weight: 400;
+  transition: background 0.3s, color 0.3s;
+}
+.agree-type.lit { background: var(--accent); color: var(--white); }
+.agree-chart tbody th {
+  color: var(--text-light);
+  font-weight: 400;
+  font-size: 0.8rem;
+  transition: color 0.3s;
+}
+.agree-chart tbody th.lit { color: var(--text); font-weight: 600; }
+.agree-row { transition: background 0.3s; }
+.agree-row.lit { background: var(--grey-light); }
+.agree-chart td .lit .agree-stem, .agree-chart td .lit .agree-ending { font-weight: 600; }
+/* cells only: the type chip is a span too, and lights up differently */
+.agree-chart td span.lit {
+  background: var(--lit);
+  box-shadow: 0 0 0 3px var(--lit);
+  border-radius: 2px;
+}
+.agree-stem { color: var(--text-light); }
+.agree-ending { color: var(--text); font-weight: 600; }
+.agree-gap { color: var(--grey); }
+.agree-easy { margin-top: 1rem; }
+
+/* the feedback pushdown */
+.agree-feedback {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+.agree-feedback.open { grid-template-rows: 1fr; }
+.agree-feedback-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+.agree-feedback.open .agree-feedback-inner {
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+}
+.agree-feedback-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.agree-caption { font-size: 0.9rem; min-height: 1.4em; }
+
+@media (prefers-reduced-motion: reduce) {
+  .agree-feedback, .agree-row, .agree-type, .agree-chart tbody th { transition: none; }
+}
