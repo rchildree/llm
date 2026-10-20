@@ -51,15 +51,19 @@ function Rules({ hits }: { hits: RuleHit[] }) {
   )
 }
 
-/** Name a noun's gender, with the rules on hand. */
+/**
+ * Name a noun's gender. The rules that bear on the word are the feedback:
+ * they come after the choice, so the student commits to an answer first and
+ * then reads why it was right — or which rule misled them.
+ */
 export default function GenderHelper({ question, onNext }: Props) {
   const { lat } = useDisplay()
   const [answer, setAnswer] = useState<Gender | null>(null)
-  const [help, setHelp] = useState(false)
 
   const { entry, answers } = question
   const correct = answer !== null && answers.includes(answer)
   const genitive = entry.pp[1]
+  const is = answers.map((g) => GENDER_WORD[g]).join(' or ')
 
   return (
     <div className="card agree-card">
@@ -74,39 +78,24 @@ export default function GenderHelper({ question, onNext }: Props) {
       </div>
 
       {answer === null ? (
-        <>
-          <div className="drill-actions">
-            {CHOICES.map((gender) => (
-              <button
-                key={gender}
-                className="btn gender-choice"
-                onClick={() => setAnswer(gender)}
-                title={GENDER_WORD[gender]}
-              >
-                {GENDER_LABEL[gender]}
-              </button>
-            ))}
+        <div className="drill-actions">
+          {CHOICES.map((gender) => (
             <button
-              type="button"
-              className={help ? 'btn-secondary on' : 'btn-secondary'}
-              aria-expanded={help}
-              onClick={() => setHelp((h) => !h)}
+              key={gender}
+              className="btn gender-choice"
+              onClick={() => setAnswer(gender)}
+              title={GENDER_WORD[gender]}
             >
-              {help ? 'Hide help' : 'Help'}
+              {GENDER_LABEL[gender]}
             </button>
-          </div>
-          {help && (
-            <div className="gender-help">
-              <Rules hits={question.hits} />
-            </div>
-          )}
-        </>
+          ))}
+        </div>
       ) : (
         <>
           <p className={correct ? 'grade-perfect' : 'grade-partial'}>
             {correct ? 'Right' : 'Not quite'} —{' '}
-            <span className="latin">{lat(entry.lemma)}</span> is{' '}
-            {answers.map((g) => GENDER_WORD[g]).join(' or ')}.
+            <span className="latin">{lat(entry.lemma)}</span> is {is}
+            {correct ? '' : `, not ${GENDER_WORD[answer]}`}.
           </p>
           <div className="gender-help">
             <Rules hits={question.hits} />
