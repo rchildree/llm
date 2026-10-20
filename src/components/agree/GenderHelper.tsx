@@ -35,6 +35,7 @@ function Rules({ hits }: { hits: RuleHit[] }) {
               </>
             )}
             .
+            {rule.caveat && <span className="gender-caveat"> {rule.caveat}</span>}
             {exception && (
               <span className="gender-exception">
                 {' '}

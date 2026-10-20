@@ -142,6 +142,32 @@ describe('the rules against the dataset', () => {
     expect(report.uncovered).toContain('cor')
   })
 
+  /**
+   * A rule that is wrong about real words has to say so in the statement the
+   * student reads, and a rule that hedges has to have something to hedge
+   * against — otherwise the panel is either overconfident or vague.
+   */
+  test('a rule hedges exactly when it has something to hedge against', () => {
+    const HEDGES = ['usually', 'nearly always', 'more often', 'apart from']
+    const hedged = (rule: (typeof GENDER_RULES)[number]) =>
+      HEDGES.some((h) => rule.statement.includes(h))
+
+    const overconfident = GENDER_RULES.filter((r) => r.exceptions.length > 0 && !hedged(r))
+    expect(overconfident.map((r) => r.id)).toEqual([])
+
+    const unbacked = GENDER_RULES.filter(
+      (r) => hedged(r) && r.exceptions.length === 0 && !r.caveat,
+    )
+    expect(unbacked.map((r) => r.id)).toEqual([])
+  })
+
+  test('statements carry no Latin of their own, so the u·V switch reaches it all', () => {
+    // Latin words live in `examples` and in the exceptions, which render
+    // through lat(); only the ending patterns appear in the statement itself
+    const stray = GENDER_RULES.filter((r) => /[āēīōū]/.test(r.statement.replace(/-\S+/g, '')))
+    expect(stray.map((r) => r.id)).toEqual([])
+  })
+
   test('every rule has an id of its own', () => {
     const ids = GENDER_RULES.map((r) => r.id)
     expect(new Set(ids).size).toBe(ids.length)

@@ -51,6 +51,8 @@ export interface GenderRule {
   statement: string
   /** the words that show it; kept apart so they render as Latin */
   examples: string[]
+  /** fine print: what the hedge in the statement is hedging against */
+  caveat?: string
   exceptions: GenderException[]
   /** does this rule bear on this noun? */
   test: (noun: RuleNoun) => boolean
@@ -122,8 +124,9 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'third-io-f',
     gender: 'f',
-    statement: 'An abstract noun in -iō (gen. -iōnis) is feminine',
+    statement: 'An abstract noun in -iō (gen. -iōnis) is nearly always feminine',
     examples: ['ratiō', 'ratiōnis'],
+    caveat: 'The few masculine ones name a concrete thing or a person.',
     exceptions: [
       { lemma: 'pūgiō', gender: 'm', note: 'dagger' },
       { lemma: 'scīpiō', gender: 'm', note: 'staff' },
@@ -143,7 +146,7 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'third-tudo-f',
     gender: 'f',
-    statement: 'A noun in -dō or -gō (gen. -dinis, -ginis) is feminine',
+    statement: 'A noun in -dō or -gō (gen. -dinis, -ginis) is usually feminine',
     examples: ['multitūdō', 'imāgō'],
     exceptions: [
       { lemma: 'ōrdō', gender: 'm', note: 'rank, order' },
@@ -164,8 +167,9 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'third-x-f',
     gender: 'f',
-    statement: 'A noun in -x is usually feminine',
+    statement: 'A noun in -x is more often feminine than masculine',
     examples: ['vōx', 'lēx', 'nox', 'lūx'],
+    caveat: 'The masculine ones are mostly words for people.',
     exceptions: [
       { lemma: 'dux', gender: 'm' },
       { lemma: 'rēx', gender: 'm' },
@@ -178,17 +182,20 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'third-cons-s-f',
     gender: 'f',
-    statement: 'A noun in -bs, -ps or -rs is feminine',
+    statement: 'A noun in -bs, -ps or -rs is nearly always feminine',
     examples: ['urbs', 'ops', 'ars', 'mors'],
-    exceptions: [],
+    exceptions: [
+      { lemma: 'prīnceps', gender: 'm', note: 'a leading man' },
+      { lemma: 'auceps', gender: 'm', note: 'fowler' },
+    ],
     test: (n) => n.declension === '3' && ends('bs', 'ps', 'rs')(n.nom),
   },
   {
     id: 'third-es-f',
     gender: 'f',
-    statement: 'A noun in -ēs that keeps its stem in the genitive is feminine',
+    statement: 'A noun in -ēs that keeps its stem in the genitive is usually feminine',
     examples: ['nūbēs', 'nūbis', 'vulpēs', 'vulpis'],
-    exceptions: [],
+    exceptions: [{ lemma: 'vātēs', gender: 'm', note: 'seer — either gender' }],
     test: (n) =>
       n.declension === '3' &&
       ends('es')(n.nom) &&
@@ -207,7 +214,7 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'third-ns-m',
     gender: 'm',
-    statement: 'A noun in -ns is usually masculine',
+    statement: 'A noun in -ns is more often masculine than feminine',
     examples: ['fōns', 'mōns', 'pōns', 'dēns'],
     exceptions: [
       { lemma: 'mēns', gender: 'f' },
@@ -228,7 +235,7 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'third-or-m',
     gender: 'm',
-    statement: 'A noun in -or (gen. -ōris) is masculine',
+    statement: 'A noun in -or (gen. -ōris) is nearly always masculine',
     examples: ['amor', 'labor', 'timor'],
     exceptions: [
       { lemma: 'uxor', gender: 'f' },
@@ -240,7 +247,7 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'third-os-m',
     gender: 'm',
-    statement: 'A noun in -ōs (gen. -ōris) is masculine',
+    statement: 'A noun in -ōs (gen. -ōris) is usually masculine',
     examples: ['mōs', 'mōris', 'flōs', 'flōris'],
     exceptions: [{ lemma: 'ōs', gender: 'n', note: 'mouth, face' }],
     test: (n) => n.declension === '3' && ends('os')(n.nom) && ends('oris')(n.gen),
@@ -250,6 +257,7 @@ export const GENDER_RULES: GenderRule[] = [
     gender: 'm',
     statement: 'A noun in -ō with genitive -ōnis is masculine',
     examples: ['leō', 'leōnis'],
+    caveat: 'The abstract nouns in -iō are the exception, and they are feminine.',
     exceptions: [],
     test: (n) =>
       n.declension === '3' && ends('o')(n.nom) && !ends('io')(n.nom) && ends('onis')(n.gen),
@@ -257,7 +265,7 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'third-er-m',
     gender: 'm',
-    statement: 'A noun in -er is masculine',
+    statement: 'A noun in -er is usually masculine',
     examples: ['pater', 'frāter', 'imber'],
     exceptions: [
       { lemma: 'māter', gender: 'f' },
@@ -293,7 +301,7 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'third-us-uris-n',
     gender: 'n',
-    statement: 'A noun in -ūs with genitive -ūris is neuter',
+    statement: 'A noun in -ūs with genitive -ūris is usually neuter',
     examples: ['iūs', 'iūris', 'crūs', 'crūris'],
     exceptions: [{ lemma: 'tellūs', gender: 'f', note: 'the earth' }],
     test: (n) => n.declension === '3' && ends('us')(n.nom) && ends('uris')(n.gen),
@@ -309,9 +317,12 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'third-ar-al-n',
     gender: 'n',
-    statement: 'A noun in -ar or -al is neuter',
+    statement: 'A noun in -ar or -al is usually neuter',
     examples: ['animal', 'exemplar'],
-    exceptions: [{ lemma: 'Caesar', gender: 'm', note: "a man's name" }],
+    exceptions: [
+      { lemma: 'lar', gender: 'm', note: 'household god' },
+      { lemma: 'Caesar', gender: 'm', note: "a man's name" },
+    ],
     test: (n) => n.declension === '3' && ends('ar', 'al')(n.nom),
   },
   {
@@ -325,9 +336,12 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'third-ur-n',
     gender: 'n',
-    statement: 'A noun in -ur is neuter',
+    statement: 'A noun in -ur is usually neuter',
     examples: ['rōbur', 'fulgur', 'ebur'],
-    exceptions: [{ lemma: 'fūr', gender: 'm', note: 'thief — a person' }],
+    exceptions: [
+      { lemma: 'fūr', gender: 'm', note: 'thief — a person' },
+      { lemma: 'vultur', gender: 'm', note: 'vulture' },
+    ],
     test: (n) => n.declension === '3' && ends('ur')(n.nom) && ends('ris')(n.gen),
   },
   {
@@ -343,7 +357,7 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'first-f',
     gender: 'f',
-    statement: '1st declension (-a, gen. -ae) is feminine',
+    statement: '1st declension (-a, gen. -ae) is feminine, apart from a few words for men',
     examples: [],
     exceptions: [
       { lemma: 'agricola', gender: 'm' },
@@ -362,7 +376,7 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'second-us-m',
     gender: 'm',
-    statement: '2nd declension in -us, -er or -ir is masculine',
+    statement: '2nd declension in -us, -er or -ir is nearly always masculine',
     examples: [],
     exceptions: [
       { lemma: 'humus', gender: 'f', note: 'ground' },
@@ -384,7 +398,7 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'fourth-m',
     gender: 'm',
-    statement: '4th declension is masculine',
+    statement: '4th declension is usually masculine',
     examples: [],
     exceptions: [
       { lemma: 'manus', gender: 'f', note: 'hand' },
@@ -398,7 +412,7 @@ export const GENDER_RULES: GenderRule[] = [
   {
     id: 'fifth-f',
     gender: 'f',
-    statement: '5th declension is feminine',
+    statement: '5th declension is usually feminine',
     examples: [],
     exceptions: [
       { lemma: 'diēs', gender: 'm', note: 'day — feminine only of an appointed day' },
