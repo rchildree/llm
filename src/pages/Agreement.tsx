@@ -9,7 +9,12 @@ import { getSetting, setSetting } from '../storage/settings'
 const EXERCISES: Array<[Exercise, string]> = [
   ['does-it-match', 'Does it match?'],
   ['make-it-agree', 'Make it agree'],
+  ['fill-the-chart', 'Fill in the chart'],
+  ['which-gender', 'Gender'],
 ]
+
+/** the two switches that only mean anything for a pair on screen */
+const PAIR_EXERCISES = new Set<Exercise>(['does-it-match', 'make-it-agree'])
 
 export default function Agreement() {
   const { dataset, error } = useDataset()
@@ -75,16 +80,23 @@ export default function Agreement() {
     (e) => e.pos === 'n' && inChapterScope(e.chapter, { cap: chapterCap, only: chapterOnly }),
   ).length
 
-  const empty = !pool.modifiers.length ? (
-    <p>
-      No adjectives or pronouns through chapter {label} yet — the first adjectives
-      arrive in chapter 5.
-    </p>
-  ) : nounsInScope === 0 ? (
-    <p>No nouns in chapter {label}.</p>
-  ) : (
-    <p>Nothing to practise with these settings.</p>
-  )
+  const adjectives = pool.modifiers.filter((e) => e.pos === 'adj').length
+
+  const empty =
+    nounsInScope === 0 ? (
+      <p>No nouns in chapter {label}.</p>
+    ) : exercise === 'fill-the-chart' && adjectives === 0 ? (
+      <p>
+        Filling in the chart needs an adjective — the first ones arrive in chapter 5.
+      </p>
+    ) : !pool.modifiers.length ? (
+      <p>
+        No adjectives or pronouns through chapter {label} yet — the first adjectives
+        arrive in chapter 5.
+      </p>
+    ) : (
+      <p>Nothing to practise with these settings.</p>
+    )
 
   return (
     <main className="page">
@@ -110,28 +122,32 @@ export default function Agreement() {
             <span className="switch-track"><span className="switch-thumb" /></span>
             only ch. {label}
           </button>
-          <button
-            type="button"
-            role="switch"
-            aria-checked={easyMode}
-            className={'switch' + (easyMode ? ' on' : '')}
-            onClick={() => toggle(!easyMode, setEasyMode, 'agree.easyMode')}
-            title="Show both paradigms while you work"
-          >
-            <span className="switch-track"><span className="switch-thumb" /></span>
-            Easy mode
-          </button>
-          <button
-            type="button"
-            role="switch"
-            aria-checked={feedback}
-            className={'switch' + (feedback ? ' on' : '')}
-            onClick={() => toggle(!feedback, setFeedback, 'agree.feedback')}
-            title="Walk through the agreement after each answer"
-          >
-            <span className="switch-track"><span className="switch-thumb" /></span>
-            Feedback
-          </button>
+          {PAIR_EXERCISES.has(exercise) && (
+            <>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={easyMode}
+                className={'switch' + (easyMode ? ' on' : '')}
+                onClick={() => toggle(!easyMode, setEasyMode, 'agree.easyMode')}
+                title="Show both paradigms while you work"
+              >
+                <span className="switch-track"><span className="switch-thumb" /></span>
+                Easy mode
+              </button>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={feedback}
+                className={'switch' + (feedback ? ' on' : '')}
+                onClick={() => toggle(!feedback, setFeedback, 'agree.feedback')}
+                title="Walk through the agreement after each answer"
+              >
+                <span className="switch-track"><span className="switch-thumb" /></span>
+                Feedback
+              </button>
+            </>
+          )}
         </div>
       </div>
 
@@ -152,7 +168,8 @@ export default function Agreement() {
 
       {chapterOnly && (
         <p className="muted agree-scope-note">
-          Nouns from ch. {label} · modifiers through ch. {label}
+          Nouns from ch. {label}
+          {exercise !== 'which-gender' && ` · modifiers through ch. ${label}`}
         </p>
       )}
 

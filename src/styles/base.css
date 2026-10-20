@@ -402,6 +402,50 @@ input:focus, select:focus, button:focus-visible {
 }
 .agree-caption { font-size: 0.9rem; min-height: 1.4em; }
 
+/* the typed chart: the same grid, with a box in each askable cell */
+.agree-chart-scroll { max-width: 100%; overflow-x: auto; }
+.agree-chart-typed th, .agree-chart-typed td {
+  padding: 0.1rem 0.4rem 0.1rem 0;
+  vertical-align: baseline;
+}
+.agree-chart-typed .agree-field-row { flex-wrap: wrap; row-gap: 0.1rem; }
+.agree-chart-typed .agree-stem-fixed { font-size: 1rem; }
+.agree-chart-typed .agree-input {
+  width: 3.4rem;
+  font-size: 1rem;
+  padding: 0.05rem 0.25rem;
+}
+/* inline, so a correction cannot push the two columns out of row */
+.agree-chart-typed .agree-correction { margin-left: 0.3rem; font-size: 0.9rem; }
+.agree-chart-given .agree-ending { color: var(--accent); }
+
+/* gender */
+.gender-word { display: flex; flex-direction: column; gap: 0.2rem; }
+.gender-gen { color: var(--text-light); }
+.gender-choice { min-width: 3.2rem; font-family: var(--font-serif); }
+.gender-help { margin-top: -0.2rem; }
+.gender-rules { display: flex; flex-direction: column; gap: 0.5rem; list-style: none; }
+.gender-rules li { display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.9rem; }
+.gender-chip {
+  flex: none;
+  min-width: 1.7rem;
+  padding: 0.05rem 0.35rem;
+  border-radius: 999px;
+  background: var(--grey-light);
+  color: var(--text-light);
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  text-align: center;
+}
+.gender-rules li:first-child .gender-chip { background: var(--accent); color: var(--white); }
+.gender-exception { color: var(--text-light); }
+
+@media (max-width: 420px) {
+  .agree-chart-typed th, .agree-chart-typed td { padding-right: 0.25rem; }
+  .agree-chart-typed .agree-stem-fixed { font-size: 0.9rem; }
+  .agree-chart-typed .agree-input { width: 2.9rem; font-size: 0.95rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .agree-feedback, .agree-row, .agree-type, .agree-chart tbody th { transition: none; }
 }

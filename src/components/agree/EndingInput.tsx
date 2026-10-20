@@ -17,6 +17,8 @@ interface Props {
   label: string
   /** shown after grading when the answer was not right */
   correction?: string | null
+  /** keep the label for screen readers only, for a box inside a chart cell */
+  hideLabel?: boolean
 }
 
 /**
@@ -25,14 +27,14 @@ interface Props {
  * box takes the whole form.
  */
 const EndingInput = forwardRef<HTMLInputElement, Props>(function EndingInput(
-  { stem, value, onChange, onFocus, onSubmit, status, disabled, label, correction },
+  { stem, value, onChange, onFocus, onSubmit, status, disabled, label, correction, hideLabel },
   ref,
 ) {
   const { lat } = useDisplay()
 
   return (
     <div className={'agree-field agree-field-' + status}>
-      <label className="agree-field-label latin">{lat(label)}</label>
+      {!hideLabel && <label className="agree-field-label latin">{lat(label)}</label>}
       <div className="agree-field-row">
         {stem && <span className="latin agree-stem-fixed">{lat(stem)}</span>}
         <input

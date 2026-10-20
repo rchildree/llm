@@ -1,6 +1,6 @@
 /**
  * Choosing a modifier and a noun to practise agreement on, and turning that
- * choice into the two kinds of question in this section.
+ * choice into the pair-based questions of this section.
  */
 import type { VocabEntry } from '../dataset/types'
 import { inChapterScope, type ChapterScope } from '../chapters'
@@ -136,6 +136,47 @@ export function makeItAgree(
     // ask the student to type nothing at all
     if (!hasTypeableAnswer(modifierForm) || !hasTypeableAnswer(nounForm)) continue
     return { kind: 'make-it-agree', pair, slot, modifierForm, nounForm }
+  }
+  return null
+}
+
+// ── "fill in the chart": both paradigms, typed out in parallel ──────────────
+
+export interface FillTheChartQuestion {
+  kind: 'fill-the-chart'
+  pair: Pair
+  /** the row handed to the student as the worked example */
+  given: Slot
+}
+
+/**
+ * Adjectives only. A pronoun column would be ten whole suppletive forms (is,
+ * eius, eī, eum…) with no endings to line up against the noun's, which is the
+ * one thing this chart exists to show — and ten whole-word boxes do not fit a
+ * phone. Pronouns are still drilled by the other three exercises.
+ */
+export function fillTheChart(
+  pool: AgreementPool,
+  pronounForms?: PronounForms,
+  rng: Rng = Math.random,
+): FillTheChartQuestion | null {
+  const adjectives = pool.modifiers.filter((e) => e.pos === 'adj')
+  if (!adjectives.length) return null
+  const adjOnly: AgreementPool = { modifiers: adjectives, nouns: pool.nouns }
+
+  for (let attempt = 0; attempt < 24; attempt++) {
+    const pair = pickPair(adjOnly, pronounForms, rng)
+    if (!pair) return null
+    // the worked example has to be a row where both cells really show an ending
+    const usable = allSlots().filter((slot) => {
+      const key = slotKey(slot.c, slot.n)
+      const modifierForm = pair.modifierParadigm.get(key)
+      const nounForm = pair.nounParadigm.get(key)
+      if (!modifierForm?.whole || !nounForm?.whole) return false
+      return hasTypeableAnswer(modifierForm) && hasTypeableAnswer(nounForm)
+    })
+    if (!usable.length) continue
+    return { kind: 'fill-the-chart', pair, given: pick(usable, rng) }
   }
   return null
 }
