@@ -18,8 +18,6 @@
   --quantity-bg: #fdf6e7;
   /* feedback-panel highlight */
   --lit:         #fff4cc;
-  /* the gender column the pair calls for: a band, not a shout */
-  --col-lit:     #e8e8ec;
 
   --border:      1px solid var(--grey);
   --radius:      3px;

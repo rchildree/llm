@@ -367,8 +367,11 @@ input:focus, select:focus, button:focus-visible {
   transition: color 0.3s;
 }
 .agree-chart tbody th.lit { color: var(--text); font-weight: 600; }
-.agree-row { transition: background 0.3s; }
-.agree-row.lit { background: var(--grey-light); }
+/* the column the pair calls for is filled and the row it needs is outlined,
+   so the two can cross without fighting; every row carries the border so
+   lighting one shifts nothing */
+.agree-row { border: 1px solid transparent; transition: border-color 0.3s; }
+.agree-row.lit { border-color: var(--grey-dark); }
 .agree-chart td .lit .agree-stem, .agree-chart td .lit .agree-ending { font-weight: 600; }
 /* cells only: the type chip is a span too, and lights up differently */
 .agree-chart td span.lit {
@@ -385,7 +388,7 @@ input:focus, select:focus, button:focus-visible {
   font-size: 0.8rem;
 }
 .agree-chart td.agree-col.lit, .agree-chart thead th.agree-col-head.lit {
-  background: var(--col-lit);
+  background: var(--grey-light);
 }
 .agree-chart thead th.agree-col-head.lit { color: var(--text); font-weight: 600; }
 
