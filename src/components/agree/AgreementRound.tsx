@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import AgreementChart, { type ChartWord } from './AgreementChart'
+import AgreementChart, { type ChartWord, type GenderColumn } from './AgreementChart'
 import DoesItMatch from './DoesItMatch'
 import FeedbackPanel from './FeedbackPanel'
 import FillTheChart from './FillTheChart'
@@ -7,7 +7,12 @@ import GenderHelper from './GenderHelper'
 import MakeItAgree from './MakeItAgree'
 import { describeWord } from '../../lib/agree/describe'
 import { whichGender, type GenderQuestion } from '../../lib/agree/gender'
-import { modifierParadigm, type PronounForms, type Slot } from '../../lib/agree/paradigm'
+import {
+  modifierParadigm,
+  type Gender,
+  type PronounForms,
+  type Slot,
+} from '../../lib/agree/paradigm'
 import {
   doesItMatch,
   fillTheChart,
@@ -113,6 +118,15 @@ export default function AgreementRound({
     },
   }
 
+  // easy mode shows the modifier in all three genders; a defective pronoun
+  // may not have all of them, so take whichever build
+  const modifierGenders: GenderColumn[] = easyMode
+    ? (['m', 'f', 'n'] as Gender[]).flatMap((gender) => {
+        const paradigm = modifierParadigm(pair.modifier, gender, pronounForms)
+        return paradigm ? [{ gender, paradigm }] : []
+      })
+    : []
+
   return (
     <>
       {feedback && slot && (
@@ -144,7 +158,14 @@ export default function AgreementRound({
 
       {easyMode && (
         <div className="card agree-easy">
-          <AgreementChart modifier={words.modifier} noun={words.noun} />
+          <div className="agree-chart-scroll">
+            <AgreementChart
+              modifier={words.modifier}
+              noun={words.noun}
+              modifierGenders={modifierGenders}
+              litGender={pair.gender}
+            />
+          </div>
         </div>
       )}
     </>

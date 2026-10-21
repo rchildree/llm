@@ -371,6 +371,18 @@ input:focus, select:focus, button:focus-visible {
   box-shadow: 0 0 0 3px var(--lit);
   border-radius: 2px;
 }
+/* easy mode: the modifier in every gender, the one in play marked */
+.agree-chart thead th.agree-col-head {
+  padding-bottom: 0.15rem;
+  color: var(--text-light);
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+.agree-chart td.agree-col.lit, .agree-chart thead th.agree-col-head.lit {
+  background: var(--lit);
+}
+.agree-chart thead th.agree-col-head.lit { color: var(--text); font-weight: 600; }
+
 .agree-stem { color: var(--text-light); }
 .agree-ending { color: var(--text); font-weight: 600; }
 .agree-gap { color: var(--grey); }
