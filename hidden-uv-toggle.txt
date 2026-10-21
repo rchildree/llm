@@ -1,0 +1,90 @@
+HIDDEN: THE u·V SWITCH
+======================
+
+What it was
+-----------
+A switch in the top navigation bar, labelled "uV", titled "Consummate Vs:
+write v as u, U as V". Turning it on rendered every Latin string on the site
+in the epigraphic convention — lower-case v written as u, capital U written
+as V — so that "victoria" showed as "uictoria" and "Vrbs" for "Urbs".
+
+It is hidden, not removed. The button is the only thing that went away.
+
+
+What is still running
+---------------------
+Nothing about the mode itself was switched off:
+
+  * The setting still persists, under the localStorage key
+    "iterum:display.consummateVs".
+  * DisplayProvider still reads it at start-up, and every Latin string on
+    every page still renders through useDisplay().lat, so the transformation
+    still applies wherever it is turned on.
+  * The transformation itself still lives in src/lib/display/latinText.ts
+    (consummateVs), with its tests, untouched.
+
+So anyone whose browser already had the mode on is still seeing u for v, and
+has no way to turn it off from the interface. If that matters, see
+"Turning the mode itself off for everyone" below.
+
+
+To unhide the switch
+--------------------
+Open src/app/Layout.tsx and change one line near the top:
+
+    const SHOW_VS_TOGGLE: boolean = false
+
+to
+
+    const SHOW_VS_TOGGLE: boolean = true
+
+That is the whole change. The button and its spacer are still in the file,
+wrapped in {SHOW_VS_TOGGLE && (...)}; flipping the flag puts them back in the
+navigation bar exactly as they were. Rebuild (npm run build) or let the dev
+server reload, and the switch is there again.
+
+The explicit ": boolean" on the constant is deliberate — without it,
+TypeScript narrows the type to the literal false and some tooling starts
+treating the button as dead code.
+
+
+To turn the mode on or off without the switch
+---------------------------------------------
+In the browser's developer console, on the site's own origin:
+
+    localStorage.setItem('iterum:display.consummateVs', 'true')    // on
+    localStorage.setItem('iterum:display.consummateVs', 'false')   // off
+    localStorage.removeItem('iterum:display.consummateVs')         // default (off)
+
+Then reload the page. The value is read once at start-up, so a reload is
+needed either way. Note the "iterum:" prefix: every setting this site stores
+carries it (see src/storage/settings.ts).
+
+
+Turning the mode itself off for everyone
+----------------------------------------
+Hiding the switch leaves the stored preference in place, so a returning
+visitor who had turned it on stays in u·V with no way back. To force everyone
+to plain spelling while the switch is hidden, change the lat callback in
+src/app/DisplayContext.tsx:
+
+    const lat = useCallback((s: string) => (vsMode ? consummateVs(s) : s), [vsMode])
+
+to
+
+    const lat = useCallback((s: string) => s, [])
+
+Remember to undo that if you ever unhide the switch, or the switch will toggle
+nothing. Leaving the callback as it is — the current state — is the right
+choice if the switch is coming back.
+
+
+Why it was hidden
+-----------------
+Asked for on 21 October 2026. No reason recorded here; ask whoever asked.
+
+One side effect worth knowing: the switch was the widest thing in the
+navigation bar, and it was the element that made every page scroll sideways
+by about 84 pixels at a 375-pixel phone width. With it hidden, the navigation
+bar fits. If you unhide it, that overflow comes back and is worth fixing in
+the .topnav styles rather than by hiding the button again.
