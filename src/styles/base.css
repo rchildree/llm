@@ -84,6 +84,11 @@ input:focus, select:focus, button:focus-visible {
 .topnav a.navlink:hover { color: var(--text); text-decoration: none; }
 .topnav a.navlink.active { color: var(--accent); }
 .topnav .spacer { flex: 1; }
+/* the full title wants ~550px beside the links, and wraps to four lines below
+   that; on a narrow screen the initials carry it */
+@media (max-width: 560px) {
+  .topnav .brand-rest { display: none; }
+}
 
 .page {
   width: 100%;

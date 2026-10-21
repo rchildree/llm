@@ -18,7 +18,9 @@ export default function Layout() {
   return (
     <div className="shell">
       <nav className="topnav">
-        <span className="brand">LLM: Latin learning Machine</span>
+        <span className="brand">
+          LLM<span className="brand-rest">: Latin learning Machine</span>
+        </span>
         <NavLink to="/flashcards" className={link}>Flashcards</NavLink>
         <NavLink to="/drills" className={link}>Drills</NavLink>
         <NavLink to="/agreement" className={link}>Agreement</NavLink>

@@ -85,6 +85,10 @@ Asked for on 21 October 2026. No reason recorded here; ask whoever asked.
 
 One side effect worth knowing: the switch was the widest thing in the
 navigation bar, and it was the element that made every page scroll sideways
-by about 84 pixels at a 375-pixel phone width. With it hidden, the navigation
-bar fits. If you unhide it, that overflow comes back and is worth fixing in
-the .topnav styles rather than by hiding the button again.
+at a 375-pixel phone width. With it hidden, the navigation bar fits.
+
+The title was shortened to "LLM" below 560 pixels shortly afterwards, which
+bought back most of that room, but not all of it: unhiding the switch still
+pushes the bar a little past a 375-pixel screen. Fix that in the .topnav
+styles — let the bar wrap, or drop the "uV" label and keep the track — rather
+than by hiding the button again.
