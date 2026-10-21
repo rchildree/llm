@@ -118,23 +118,21 @@ export default function AgreementRound({
     },
   }
 
-  // easy mode shows the modifier in all three genders; a defective pronoun
+  // both charts show the modifier in all three genders; a defective pronoun
   // may not have all of them, so take whichever build
-  const modifierGenders: GenderColumn[] = easyMode
-    ? (['m', 'f', 'n'] as Gender[]).flatMap((gender) => {
-        const paradigm = modifierParadigm(pair.modifier, gender, pronounForms)
-        return paradigm ? [{ gender, paradigm }] : []
-      })
-    : []
+  const modifierGenders: GenderColumn[] = (['m', 'f', 'n'] as Gender[]).flatMap((gender) => {
+    const paradigm = modifierParadigm(pair.modifier, gender, pronounForms)
+    return paradigm ? [{ gender, paradigm }] : []
+  })
 
   return (
     <>
       {feedback && slot && (
         <FeedbackPanel
           open={answered}
-          runKey={round}
           modifier={words.modifier}
           noun={words.noun}
+          modifierGenders={modifierGenders}
           gender={pair.gender}
           slot={slot}
         />
@@ -163,7 +161,6 @@ export default function AgreementRound({
               modifier={words.modifier}
               noun={words.noun}
               modifierGenders={modifierGenders}
-              litGender={pair.gender}
             />
           </div>
         </div>

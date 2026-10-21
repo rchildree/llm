@@ -110,7 +110,7 @@ export default function AgreementChart({
         paradigm: c.paradigm,
         lit: c.gender === litGender,
       }))
-    : [{ key: 'modifier', paradigm: modifier.paradigm, lit: false }]
+    : [{ key: 'modifier', paradigm: modifier.paradigm, lit: true }]
 
   return (
     <table className={'agree-chart' + (className ? ' ' + className : '')}>
@@ -154,9 +154,9 @@ export default function AgreementChart({
                           side: 'modifier',
                           word: modifier,
                           form,
-                          lit: isRow && showModifier,
+                          lit: isRow && showModifier && column.lit,
                         })
-                      : printed(form, isRow && showModifier)}
+                      : printed(form, isRow && showModifier && column.lit)}
                   </td>
                 )
               })}

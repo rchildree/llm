@@ -376,7 +376,8 @@ input:focus, select:focus, button:focus-visible {
   box-shadow: 0 0 0 3px var(--lit);
   border-radius: 2px;
 }
-/* easy mode: the modifier in every gender, the one in play marked */
+/* the modifier in every gender; the column is marked in the feedback panel
+   only, where the answer is already out */
 .agree-chart thead th.agree-col-head {
   padding-bottom: 0.15rem;
   color: var(--text-light);
@@ -384,7 +385,7 @@ input:focus, select:focus, button:focus-visible {
   font-size: 0.8rem;
 }
 .agree-chart td.agree-col.lit, .agree-chart thead th.agree-col-head.lit {
-  background: var(--lit);
+  background: var(--col-lit);
 }
 .agree-chart thead th.agree-col-head.lit { color: var(--text); font-weight: 600; }
 
