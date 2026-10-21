@@ -26,6 +26,14 @@ const EXERCISES: Array<[Exercise, string]> = [
   ['which-gender', 'Gender'],
 ]
 
+/**
+ * Hidden for now. Everything behind it still works and is still tested — take
+ * the id out of this set to put the tab back.
+ */
+const HIDDEN_EXERCISES = new Set<Exercise>(['fill-the-chart'])
+
+const DEFAULT_EXERCISE: Exercise = 'does-it-match'
+
 /** the two switches — and the slot options — that only mean anything for a pair on screen */
 const PAIR_EXERCISES = new Set<Exercise>(['does-it-match', 'make-it-agree'])
 
@@ -49,7 +57,7 @@ export default function Agreement() {
   const { dataset, error } = useDataset()
   const [chapterCap, setChapterCap] = useState<number | null>(null)
   const [chapterOnly, setChapterOnly] = useState(false)
-  const [exercise, setExercise] = useState<Exercise>('does-it-match')
+  const [exercise, setExercise] = useState<Exercise>(DEFAULT_EXERCISE)
   const [easyMode, setEasyMode] = useState(false)
   const [feedback, setFeedback] = useState(true)
   const [pronounForms, setPronounForms] = useState<PronounForms | null>(null)
@@ -62,7 +70,7 @@ export default function Agreement() {
     Promise.all([
       getSetting<number>('study.chapterCap', 10),
       getSetting<boolean>('study.chapterOnly', false),
-      getSetting<Exercise>('agree.exercise', 'does-it-match'),
+      getSetting<Exercise>('agree.exercise', DEFAULT_EXERCISE),
       getSetting<boolean>('agree.easyMode', false),
       getSetting<boolean>('agree.feedback', true),
       getSetting<AgreementOptions>('agree.options', DEFAULT_AGREE_OPTIONS),
@@ -70,7 +78,7 @@ export default function Agreement() {
     ]).then(([cap, only, saved, easy, fb, opts, hard]) => {
       setChapterCap(cap)
       setChapterOnly(only)
-      setExercise(saved)
+      setExercise(HIDDEN_EXERCISES.has(saved) ? DEFAULT_EXERCISE : saved)
       setEasyMode(easy)
       setFeedback(fb)
       setOptions({ ...DEFAULT_AGREE_OPTIONS, ...opts })
@@ -235,7 +243,7 @@ export default function Agreement() {
       </div>
 
       <div className="agree-tabs" role="tablist">
-        {EXERCISES.map(([value, text]) => (
+        {EXERCISES.filter(([value]) => !HIDDEN_EXERCISES.has(value)).map(([value, text]) => (
           <button
             key={value}
             type="button"
