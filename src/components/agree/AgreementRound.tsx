@@ -130,6 +130,7 @@ export default function AgreementRound({
       {feedback && slot && (
         <FeedbackPanel
           open={answered}
+          runKey={round}
           modifier={words.modifier}
           noun={words.noun}
           modifierGenders={modifierGenders}

@@ -1,10 +1,20 @@
+import { useEffect, useRef, useState } from 'react'
 import AgreementChart, { type ChartWord, type GenderColumn } from './AgreementChart'
 import { GENDER_WORD, describeSlot } from '../../lib/agree/describe'
 import type { Gender, Slot } from '../../lib/agree/paradigm'
 import { slotKey } from '../../lib/agree/paradigm'
 
-interface Props {
-  open: boolean
+/**
+ * 1 word types · 2 the noun's slot · 3 the modifier's parallel slot
+ * · 4 rest, everything held.
+ */
+const LAST_STEP = 4
+const STEP_MS = 850
+
+const prefersReducedMotion = () =>
+  typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches
+
+interface SequenceProps {
   modifier: ChartWord
   noun: ChartWord
   /** the modifier in every gender, so the concord is a column as well as a row */
@@ -14,44 +24,79 @@ interface Props {
 }
 
 /**
- * The pushdown above the exercise: why these two forms go together, said in
- * one go. The explanation used to arrive a clause at a time on a timer, which
- * meant each clause was gone before it could be read — it is all written at
- * once now, with the chart already marked.
+ * The chart walks the agreement one step at a time — the noun's slot, then
+ * the modifier's — while the explanation above it is written whole from the
+ * start. Staging the words was the point; staging the prose only meant each
+ * clause was gone before it could be read.
  *
- * The wrapper stays mounted so its height can animate; the content inside is
- * rendered only while it is open.
+ * Mounted fresh for each answer (the parent keys it), so the first step is
+ * its initial state rather than something an effect has to set.
  */
-export default function FeedbackPanel({
-  open,
-  modifier,
-  noun,
-  modifierGenders,
-  gender,
-  slot,
-}: Props) {
+function FeedbackSequence({ modifier, noun, modifierGenders, gender, slot }: SequenceProps) {
+  const [step, setStep] = useState(() => (prefersReducedMotion() ? LAST_STEP : 1))
+  const [runId, setRunId] = useState(0)
+  const timers = useRef<Array<ReturnType<typeof setTimeout>>>([])
+
+  useEffect(() => {
+    timers.current.forEach(clearTimeout)
+    timers.current = []
+    if (prefersReducedMotion()) return
+    for (let s = 2; s <= LAST_STEP; s++) {
+      timers.current.push(setTimeout(() => setStep(s), STEP_MS * (s - 1)))
+    }
+    return () => {
+      timers.current.forEach(clearTimeout)
+      timers.current = []
+    }
+  }, [runId])
+
+  const replay = () => {
+    setStep(prefersReducedMotion() ? LAST_STEP : 1)
+    setRunId((n) => n + 1)
+  }
+
+  return (
+    <>
+      <div className="agree-feedback-head">
+        <p className="agree-caption">
+          {/* a noun's type already ends in its gender's full stop */}
+          {`${modifier.type} with ${noun.type}`.replace(/\.?$/, '.')} The noun is{' '}
+          {describeSlot(slot)}, and {GENDER_WORD[gender]} — so the modifier is{' '}
+          {describeSlot(slot)} too, in the {GENDER_WORD[gender]}.
+        </p>
+        <button type="button" className="linklike" onClick={replay}>
+          Replay
+        </button>
+      </div>
+      <AgreementChart
+        modifier={modifier}
+        noun={noun}
+        modifierGenders={modifierGenders}
+        litGender={gender}
+        highlight={step >= 2 ? slotKey(slot.c, slot.n) : null}
+        showTypes={step >= 1}
+        showNoun={step >= 2}
+        showModifier={step >= 3}
+      />
+    </>
+  )
+}
+
+interface Props extends SequenceProps {
+  open: boolean
+  /** changes with every answer, to restart the walkthrough */
+  runKey: string | number
+}
+
+/**
+ * The pushdown above the exercise. The wrapper stays mounted so its height can
+ * animate; the walkthrough inside mounts only while it is open.
+ */
+export default function FeedbackPanel({ open, runKey, ...sequence }: Props) {
   return (
     <div className={'agree-feedback' + (open ? ' open' : '')} aria-hidden={!open}>
       <div className="agree-feedback-inner">
-        {open && (
-          <>
-            <div className="agree-feedback-head">
-              <p className="agree-caption">
-                {/* a noun's type already ends in its gender's full stop */}
-                {`${modifier.type} with ${noun.type}`.replace(/\.?$/, '.')} The noun is{' '}
-                {describeSlot(slot)}, and {GENDER_WORD[gender]} — so the modifier is{' '}
-                {describeSlot(slot)} too, in the {GENDER_WORD[gender]}.
-              </p>
-            </div>
-            <AgreementChart
-              modifier={modifier}
-              noun={noun}
-              modifierGenders={modifierGenders}
-              litGender={gender}
-              highlight={slotKey(slot.c, slot.n)}
-            />
-          </>
-        )}
+        {open && <FeedbackSequence key={runKey} {...sequence} />}
       </div>
     </div>
   )
